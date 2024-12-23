@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title></title>
+</head>
+
+<body>
+  <div class="header">
+  <div class="hm">
+    <div class="home">
+      <img src="img/home.svg" alt="">
+    </div>
+    <div class="menu">
+      <img src="img/menu.svg" alt="">
+    </div>
+  </div>
+  <div class="status">
+    <div class="score">
+      <div class="my-score"> 20</div>
+     </div>
+    <div class="progress">
+      <div class="my-progress"> </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container">
+      <div class="consigne">Réponds par Vrai ou Faux ?</div>
+      <div class="question">  La mère de Sidi Mohammed s'est disputée avec Rahma à cause des origines de cette dernière. </div>
+      <div class="v-f">
+        <div class="vrai"> Vrai</div> 
+        <div class="faux"> Faux </div> 
+      </div>
+      
+      <div class="verifier"> Vérifer  </div>
+    </div>
+  
+</body>
+<style>
+  
+  .consigne, .question{
+    width: 95%;
+    border: 1px solid;
+    border-radius: 5px;
+  }
+  
+  .question{
+      flex-basis: 20%;
+      padding: 10px;
+  }
+
+  .v-f{
+    display: flex;
+    justify-content: center; 
+    gap: 40px
+  }
+
+  .vrai, .faux{
+    padding: 50px;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+  }
+  
+</style>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <div class="question">  </div>
+  <div class="c c1">  </div>
+  <div class="c c2">  </div>
+  <div class="c c3">  </div>
+  <button class="verifier">Vérifier</button>
+  <div class="container">
+    
+  </div>
+</body>
+
+<script>
+  const l=console.log
+  const question=[{question: 'Qui a escroqué l\'atelier de moulay Larbi ?',  c1: 'Abdelkader', c2: 'Driss le teigneux',c3: 'Le dellal', rep:'Abdelkader'},]
+  const questions=[{question: 'Quel était l\'âge du narrateur ?',  c1: 'Six ans', c2: 'Sept ans',c3: 'Huit ans', rep:'Six ans'},
+  {question: 'Comment faire son résumé ?', c1:'Bien lire', c2: 'Comprendre', c3:'Ecrire ce que j\'ai compris', rep: 'Comprendre'}]
+  const qst=document.querySelector('.question')
+  const c1=document.querySelector('.c1')
+  const c2=document.querySelector('.c2')
+  const c3=document.querySelector('.c3')
+  const verifier = document.querySelector('button.verifier')
+  const cont=document.querySelector('.container')
+  let contPos={
+    x:cont.getBoundingClientRect().top,
+    y:cont.getBoundingClientRect().left
+  }
+  
+  
+  let reponse
+  function qcm(arrQst){
+    arrQst.sort( ()=>{return Math.random() - 0.5 })
+    qst.innerHTML=arrQst[0].question
+    c1.innerHTML=arrQst[0].c1
+    c2.innerHTML=arrQst[0].c2
+    c3.innerHTML=arrQst[0].c3
+  
+    // SELECTION
+const lesChoix= document.querySelectorAll('.c');
+lesChoix.forEach(choix=> {
+ choix.addEventListener('click',()=> {
+  //for(let choice of lesChoix) choice.classList.remove('selected');
+  for(let choice of lesChoix) choice.className='c';
+  choix.classList.add('selected');
+  reponse = choix;
+ })
+})
+
+verifier.onclick=(e)=>{
+  for(let choice of lesChoix) choice.classList.remove('selected');
+  //verifier.classList.toggle('clicked')
+  
+  if(!reponse) return
+  if(reponse.innerHTML === arrQst[0].rep) {
+    //e.target.classList.add('correct')
+    
+    reponse.classList.add('correct')
+  } 
+  else {
+        reponse.classList.add('incorrect')
+        Array.from(lesChoix).find((c)=>{
+          return c.innerText==arrQst[0].rep
+        }).classList.add('correct')
+  }
+  //verifier.style.transform="translateY(300px)";
+  
+}
+
+    
+  } //Fin fonction QCM 
+  qcm(questions)
+</script>
+<style>
+  .c{
+    position: relative;
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 15px;
+    border-radius: 10px;
+    transition: background 0.5s ease;
+  }
+  .c:before{
+    
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    left: -15px;
+    transform: translateY(50%);
+    border-radius: 2px
+  }
+  .selected{
+    background-color: lightblue;
+  }
+  button.verifier{
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 30px 130px;
+    transition: transform 0.3s ease;
+  }
+  button.verifier.clicked{
+    transform: translate(0px, 200px);
+  }
+  .container{
+    width: 100%;
+    height: 200px;
+    border: 1px solid; border-radius: 10px;
+  }
+  .correct{
+    bborder: 1px solid palegreen;
+    background-color: palegreen
+  }
+  .incorrect{
+    bborder: 1px solid orangered;
+    background-color: orangered;
+  }
+</style>
+</html>

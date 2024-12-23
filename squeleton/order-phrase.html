@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title></title>
+</head>
+
+<body>
+  <div class="header">
+  <div class="hm">
+    <div class="home">
+      <img src="img/home.svg" alt="">
+    </div>
+    <div class="menu">
+      <img src="img/menu.svg" alt="">
+    </div>
+  </div>
+  <div class="status">
+    <div class="score">
+      <div class="my-score"> 20</div>
+     </div>
+    <div class="progress">
+      <div class="my-progress"> </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container">
+    <div class="consigne">Mets en ordre les mots de la phrase suivante </div>
+    <div class="drop">     </div>
+    <div class="drag"> <span>avait</span> <span>Mohamed</span> <span>Sidi</span> <span>ans</span> <span>six</span>
+    </div>
+    <div class="verifier">Vérifier </div>
+  </div>
+</body>
+<style>
+  
+
+.drag, .drop{
+  min-height: 130px;
+  border:1px solid gray;
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px;
+}
+
+.drag span{
+  display: inline-block;
+  padding: 5px ;
+  margin: 5px;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+.drop{
+    counter-reset: counter; 
+    padding:10px 5px 10px 30px;
+ }
+
+</style>
+</html>

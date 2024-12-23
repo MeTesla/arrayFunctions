@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+   <div class="header">
+  <div class="hm">
+    <div class="home">
+      <img src="img/home.svg" alt="">
+    </div>
+    <div class="menu">
+      <img src="img/menu.svg" alt="">
+    </div>
+  </div>
+  <div class="status">
+    <div class="score">
+      <div class="my-score"> 20</div>
+     </div>
+    <div class="progress">
+      <div class="my-progress"> </div>
+    </div>
+  </div>
+</div>
+
+ <div class="container">
+  <div class="consigne"> Je relie le mot à son synonyme   </div>
+ 
+  <div class="rows">
+      <div class="left">
+        <div class="box" data-rep="A cat" id="0">Un chat</div>
+        <div class="box" data-rep="A dog" id="1">Un chien</div>
+        <div class="box" data-rep="A girafe" id="2">Une girafe </div>
+        <div class="box" data-rep="A chicken" id="3">Une poule</div>
+  
+      </div>
+      <div class="right">
+        <div class="box2" id="4">A dog </div>
+        <div class="box2" id="5">A chicken</div>
+        <div class="box2" id="6">A cat</div>
+        <div class="box2" id="7"> A girafe </div>
+      </div>
+      <svg id="svg"></svg>
+  </div>
+  <div class="redo">
+    redo
+  </div>
+  <div class="verifier"> Vérifier </div>
+ </div>
+ 
+  <script>
+  /*    #####  REFLEXION  #####
+  1-Correct / incorrect
+  
+  2-RemoveLast path
+    -svg.removeLastElement()
+    -verifier class allow | not allow pour pvr retracer la path supprimer
+    
+  3-Desable some actions : path onclick on Verifier
+  */
+  // !== not ==!
+  // getBoundingClientRect() appelé d'une fonction
+    const l=console.log
+    const rows=document.querySelector('.rows');
+    const box=document.querySelector('.box');
+    const box2=document.querySelector('.box2');
+    const redo=document.querySelector('.redo');
+    const verifier = document.querySelector('.verifier');
+    let svg=document.querySelector('#svg');
+    let index =0
+    let path, paths,xFrom, yFrom,start,end
+
+  rows.ontouchstart=(e)=>{
+    let t=e.touches[0]
+    xFrom=e.target.getBoundingClientRect().right + 7 - rows.offsetLeft;
+    yFrom=e.target.getBoundingClientRect().top + e.target.getBoundingClientRect().height /2 + 3 - rows.offsetTop;
+    start=e.target
+    svg.innerHTML+=`<path id=${index} class="my-path"> </path>`
+  
+    rows.ontouchmove=(e)=>{
+      paths=document.querySelectorAll('.my-path');
+      let t=e.touches[0]
+      if (start.className !== 'box' 
+         || start.dataset.hasPath) return
+      paths[index].setAttribute('d',`M${xFrom} ${yFrom} L${t.clientX-rows.offsetLeft} ${t.clientY-rows.offsetTop }`)
+    }//fin touchmove
+  }//fin touchStar
+  
+  rows.ontouchend=(e)=>{
+    let t=e.changedTouches[0]
+    end=document.elementFromPoint(t.clientX, t.clientY)
+    if((end.className == "box2") 
+        && (start.className == "box")
+        && (!end.dataset.hasPath)) {
+      
+      let x =end.getBoundingClientRect().left - 10 - rows.offsetLeft 
+      let y =end.getBoundingClientRect().top + end.getBoundingClientRect().height /2 + 3- rows.offsetTop
+      
+      if(start.dataset.hasPath !== 'true') {
+        paths[index].setAttribute('d',`M${xFrom} ${yFrom} L${x} ${y}`)
+        paths[index].setAttribute('data-from', start.id)
+        paths[index].setAttribute('data-to', end.id)
+        if(start.dataset.rep == end.innerText){
+        paths[index].setAttribute('data-correct', 'correct')
+        }
+      }
+      end.dataset.hasPath='true'
+      start.dataset.hasPath="true"
+      
+      index++
+     } else if(paths) {paths[index].remove()} else return
+   } 
+  
+  redo.addEventListener('click',()=>{
+    
+    //svg.children.length > 0 && svg.lastElementChild.remove() = one instruction
+     if(svg.children.length > 0){
+        let boxes=document.querySelectorAll('.box')
+        let boxes2=document.querySelectorAll('.box2')
+        let elementId= {from:+svg.lastElementChild.dataset.from,
+              to: +svg.lastElementChild.dataset.to
+        }
+      
+      //, paths[elementId].dataset.from )
+      //let a=Array.from[boxes].find(b=>{ return b.id==elementId})
+      
+      boxes.forEach(b=>{
+        if(b.id==elementId.from){
+          b.removeAttribute('data-has-path')
+         return
+        }
+      })
+      
+        boxes2.forEach(b => {
+          if (b.id == elementId.to) {
+            b.removeAttribute('data-has-path')
+            return
+          }
+        })
+      svg.lastElementChild.remove(); index--;
+     }
+ })
+ 
+ verifier.addEventListener('click',()=>{
+   // data : paths, start.datarep==end.innerText
+   svg.childNodes.forEach(path=>{
+     if(path.dataset.correct=='correct'){
+       path.style.stroke="green"
+     } else{
+       path.style.stroke="red"
+     }
+   })
+ })
+// xFrom=(box.getBoundingClientRect().left + box.getBoundingClientRect().right) /2;
+// yFrom=(box.getBoundingClientRect().top + box.getBoundingClientRect().bottom) /2;
+    
+/*let bx2 = {
+  x: (box2.getBoundingClientRect().left + box2.getBoundingClientRect().right) / 2,
+  y: (box2.getBoundingClientRect().top + box2.getBoundingClientRect().bottom) / 2
+}*/
+  </script>
+  
+  <style>
+
+.rows {
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+  }
+ 
+  .box, .box2{
+    position: relative;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 10px;
+    background-color: darkslategray;
+    color: white;
+    text-align: center;
+    color: white;
+    font-size: 0.8rem ;
+    font-weight: 500 ;
+    border-radius: 5px;
+  }
+  .box::before, .box2::before{
+    content : "";
+    position: absolute;
+    right: -8px; top: 50%;
+    width: 5px;
+    height: 5px;
+    background-color: darkslategray;
+    border-radius: 50%;
+  }
+  .box2::before{
+    left: -8px;
+  }
+  
+    svg{
+      position: absolute;
+      top:0; left: 0; 
+      z-index: -1;
+      width: 100%; height: 100%;
+    }
+    .my-path{
+      stroke: rgb(0, 0, 250);
+      stroke-width: 2px;
+      stroke-linecap: round;
+      stroke-dasharray: 5px 5px;
+      stroke: dimgrey;
+      fill: transparent; 
+    }
+  
+  .redo{
+    width:50px; height: 50px;
+    border: 2px solid gray;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+  }
+  </style>
+</body>
+</html>

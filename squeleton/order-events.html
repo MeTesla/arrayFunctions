@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+  <div class="header">
+  <div class="hm">
+    <div class="home">
+      <img src="img/home.svg" alt="">
+    </div>
+    <div class="menu">
+      <img src="img/menu.svg" alt=""> 
+    </div>
+  </div>
+  <div class="status">
+    <div class="score">
+      <div class="my-score"> 20</div>
+     </div>
+    <div class="progress">
+      <div class="my-progress"> </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container">
+    
+    <div class="consigne">Je mets en ordre les évènements du chapitre.</div>
+    <div class="drag-drop">
+         <div class="drop">  </div>
+         <div class="drag">   </div>
+    </div>
+    <div class="verifier">Vérifier </div>
+  </div>
+<script>
+
+const l=console.log
+const container =document.querySelector('.container');
+let drag = document.querySelector('.drag')
+let drop = document.querySelector('.drop')
+let ol= document.querySelector('.ol')
+let verifier = document.querySelector('.verifier')
+
+const initData =[
+ 'Les trois se rendent à Sidi El Arafi.',
+ 'La mère décide de retenir l’enfant à la maison.',
+ 'La visite de Lalla Aicha.',
+ 'Mly Laarbi se fait escroqué par son apprenti Abdelkader']
+ 
+ let data = [...initData].sort(function(a,b){return 0.5 - Math.random()})
+
+for (let i=0; i<data.length; i++){
+    const div = document.createElement('div')
+    div.setAttribute('class','phrase')
+    div.innerHTML=data[i]
+    drag.appendChild(div)
+    div.addEventListener('click', (ev)=>{
+     if(div.parentElement == drag){
+       div.classList.add("li")
+       drop.append(div)
+      } else{
+        div.classList.remove('li')
+        drag.appendChild(div)
+      }
+    })
+}
+
+  //drag.style.height = (drag.getBoundingClientRect().height + 30*data.length) + 'px'
+  //drop.style.height = drag.getBoundingClientRect().height + 'px'
+  drop.innerHTML=null
+
+// boutton verifier
+verifier.addEventListener('click', ()=>{
+    const dropedPhrases=[]
+    for (let i=0; i<drop.childNodes.length;i++){
+        dropedPhrases.push(drop.childNodes[i].innerHTML)
+    }
+    l(dropedPhrases)
+    l(initData)
+    const modal=document.createElement('DIV');
+    modal.className='modal';
+    modal.onclick=()=>{modal.remove()}
+    container.appendChild(modal)
+    if (dropedPhrases.toString()==initData.toString()){
+        modal.innerText='C\'est correct';
+    } else{
+        modal.innerText='C\'est incorrect';
+    }
+})
+
+</script>
+<style>
+
+.drag-drop{
+  flex-basis: 80%;
+}
+
+.drag, .drop{
+  min-height: 45%;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.drag {
+  border: 1px solid gray;
+}
+
+.drop{
+  counter-reset: counter; 
+  margin-bottom: 10px;
+  padding-left: 30px;
+ }
+
+.phrase{
+    width: 95%;
+    padding: 5px 10px;
+    margin: 5px auto;
+    border-radius: 5px ;
+    color: #333;
+    background-color: #eeeeeee9;
+    animation : anime 0.5s;
+}
+ 
+.li{
+   position :relative ;
+   counter-increment: counter;
+   animation : anime 0.5s;
+}
+@keyframes anime{
+  from {opacity: 0; }
+  to {opacity: 1;}
+}
+.li::before{
+ content: counter(counter);
+ position :absolute ;
+ left: -32px ; top:4px;
+ width :25px;
+ height :25px;
+ text-align: center;
+ font-weight: bold;
+ line-height:25px;
+ border-radius: 50%;
+ color :white ;
+ background-color: #795548;
+ z-index:-1;
+}
+
+.modal{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex; justify-content: center; align-items: center;
+  font-size: 2rem;
+  color: white;
+  background-color: #000000e1;
+}
+</style>
+
+</body>
+</html>

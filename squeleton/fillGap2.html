@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+  
+</head>
+<body>
+   <div class="header">
+<!--   <div class="hm">
+    <div class="home">
+      <img src="img/home.svg" alt="">
+    </div>
+    <div class="menu">
+      <img src="img/menu.svg" alt="">
+    </div>
+  </div>
+  -->
+  <div class="status">
+    
+    <div class="score">
+      <div class="my-score"> 20</div>
+     </div>
+    <div class="progress">
+      <div class="my-progress"> </div>
+    </div>
+    <div class="prev"><</div>
+
+  </div>
+</div>
+
+  <div class="container">
+    <div class="consigne">
+      Je glisse les mots de la liste à l'espace correct
+    </div>
+    <div class="liste">  </div>
+    <div class="texte">  </div>
+    <div class="verifier">Vérifier</div>
+  </div>
+<style>
+
+  *{ margin:0; padding: 0; box-sizing: border-box;}
+
+  body{
+    height: 100vh; 
+  }
+  .container{
+    display: block;
+    font-size: 0.8rem;
+  }
+  .liste{
+    wwidth: 100%;
+    min-height: 110px;
+    margin: 10px auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .liste span{    
+    text-align: center;
+    background-color: #e2eaff;
+    padding: 0 5px;
+    margin: 0 5px 5px 0;
+    line-height: 25px;
+  }
+  
+  .texte{
+    line-height: 30px;
+    wwidth: 95%;
+    margin: 5px auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .gap, .liste span{
+    
+    height: 25px;
+    display: inline-block;   
+    border-radius: 4px;
+  }
+  .gap{    
+    min-width: 80px;
+    margin-bottom: -8px;
+    border: 1px solid coral;
+  }
+
+</style>
+
+<script>
+const l=console.log
+//dropBox.setAttribute('contentEditable', true)
+const data=[
+{
+'texte': `La Boîte à merveilles est un roman autobiographique écrit par Ahmed Essafrioui en 1942. Il raconte l'histoire d'un enfant âgé de six ans qui se nomme Sidi Mohammed qui souffre de la solitude son seul ami était sa boîte à merveilles.`,
+'liste': ['merveilles','autobiographique', 'Ahmed', 'six', 'Mohammed', 'boîte']
+},
+
+{
+'texte': `L'histoire commence par la présentation des locataires de Dar chouafa et la description d'une séance de danse et de musique de la confrérie gnawa. Le narrateur, un enfant de six ans, parle ensuite de sa Boite à Merveilles avant de raconter le mauvais souvenir du bain maure et une dispute entre sa mère, Lalla Zoubida et Rahma.`,
+'liste': ['locataires', 'gnawa','six', 'mauvais', 'maure', 'dispute', 'Zoubida', 'Rahma']
+},
+
+{
+'texte': `Le mardi, le narrateur va au Msid (l'école coranique), un lieu qu'il déteste. De retour, il trouve sa mère souffrante. Son amie, Lalla Aicha, vient lui rendre visite et la convainc de visiter Sidi Ali Boughaleb. Puis le narrateur convoque l'origine de ses parents, et le souvenir de Driss le teigneux, l'apprenti de son père.`,
+'liste': ['mardi', 'Msid', 'déteste', 'souffrante', 'Boughaleb', 'origine', 'teigneux']
+},
+
+{
+'texte': `Le narrateur raconte sa journée au Msid où le temps passe lentement en attendant la sortie. Ensuite, Sidi Mohammed relate le souvenir de la disparition de Zineb, et comment sa mère réussit à la retrouver à la maison des Idrissides. Pour remercier Dieu, Rahma prépare un repas pour les mendiants. Toutes les voisines y participent de bon cœur.`,
+'liste': ['Msid', 'lentement', 'disparition', 'retrouver', 'remercier', 'mendiants', 'voisines']
+},
+
+{
+'texte': `Les premiers jours de printemps. Sidi Mohammed joue avec les enfants des voisins. Lalla Aicha raconte ensuite à son amie les malheurs de son mari avec son associé Abdelkader. Le lendemain, La mère rapporte ce récit malheureux à son mari. Celui-ci parle à sidi Mohammed d'Abdellah l'épicier qui racontait des histoires extraordinaires.`,
+'liste': ['printemps', 'joue', 'malheurs', 'Abdelkader', 'lendemain', 'rapporte', 'Abdellah', 'extraordinaires']
+},
+
+{
+'texte': `Un mercredi, le Fqih explique à ses élèves ses projets pour Achoura. A la maison, Lalla Zoubida raconte les malheurs de Lalla Aicha à Fatma, puis à Rahma. Ensuite, le narrateur relate le souvenir de la mort de Sidi Mohammed Ben Tahar. Ayant assisté à la scène, le petit enfant fait un cauchemar la nuit.`,
+'liste': ['mercredi', 'Fqih', 'Achoura', 'relate', 'mort', 'Tahar', 'cauchemar']
+},
+
+{
+'texte': `Pendant les préparatifs pour Achoura au Msid, le fqih organise le travail et forme des équipes. Le petit Sidi Mohammed est nommé chef des frotteurs. Sidi Mohammed se dispute avec Zineb. Sa mère se met en colère. Triste et ayant faim, le petit enfant plonge dans ses rêveries. Le narrateur nous rapporte ensuite l'histoire de Lalla Khadija et son mari l'oncle Othman racontée aux voisines par Rahma.`,
+'liste': ['préparatifs', 'équipes', 'frotteurs', 'dispute', 'Triste', 'rêveries', 'Khadija']
+},
+
+{
+'texte': `Le lendemain, le petit sidi Mohammed accompagne son père au souk pour acheter les jouets et un cierge pour le fqih. La veille de Achoura, il passe la soirée en jouant de ses instruments de musique. Le jour de Achoura, le petit enfant se réveille tôt et met ses vêtements neufs avant d'aller au Msid célébrer cette journée exceptionnelle. Après le repas, Lalla Aicha vient rendre visite à la famille du narrateur.`,
+'liste': ['accompagne', 'souk', 'jouets', 'soirée', 'musique', 'tôt', 'Msid', 'exceptionnelle']
+},
+
+{
+'texte': `Après Achoura, la vie retrouve sa monotonie. Un jour, le père du narrateur décide d'emmener sa femme et son fils au souk des bijoux pour acheter des bracelets. Accompagnée de Fatma Bziouya, la famille du narrateur arrive au souk des bijoutiers mais le père se bagarre avec un courtier. Lalla Zoubida, ne veut plus ces bracelets, elle pense qu'ils portent malheur. Sidi Mohammed tombe malade.`,
+'liste': ['Achoura', 'souk', 'bracelets', 'bagarre', 'veut', 'tombe']
+},
+
+{
+'texte': `Le père a perdu tout son capital. Il décide de vendre les bracelets et d'aller travailler aux environ de Fès. Sidi Mohammed souffre toujours de fièvre. Le départ du père est vécu comme un grand drame.  Pendant l'absence de Si Abdeslam, Lalla Zoubida rend visite à son amie Lalla Aicha. Elle lui propose alors d'aller consulter un voyant : Sidi El Arafi.`,
+'liste': ['capital', 'bracelets', 'environ', 'souffre', 'départ', 'drame', 'visite', 'voyant', 'Arafi']
+},
+
+{
+'texte': `Les deux amies consultent Sidi El Arafi qui réussit à les rassurer. Lalla Zoubida rentre chez elle tout en gardant le secret de la visite... elle décide de garder son enfant à la maison et de l'emmener régulièrement faire la visite d'un saint de la ville. Le petit enfant vit alors des moments de solitude quand sa mère sort pour rendre visite à son amie. Un matin elle reçoit la visite d'un envoyé de son mari.`,
+'liste': ['consultent', 'rassurer', 'secret', 'garder', 'saint', 'solitude', 'reçoit', 'mari']
+},
+
+{
+'texte': `Les femmes discutent Chez Lalla Aicha quand elle reçoit la visite de Salama, qui raconte son rôle dans le mariage de Moulay Larbi avec la fille du coiffeur et les problèmes du nouveau couple. Cela présage un divorce certain.`,
+'liste': ['discutent', 'Salama', 'mariage', 'coiffeur', 'couple', 'divorce']
+},
+
+{
+'texte': `Le narrateur raconte le retour de son père. Sidi Mohammed raconte à son père les événements passés pendant son absence. Driss El Aouad félicite Maâlem Abdeslam pour son retour. Plongés dans leur discussion, les deux hommes oublient le petit enfant qui, aussi solitaire qu'au début et aussi rêveur, sort sa boite à merveilles et se laisse bercer par ses rêves.`,
+'liste': ['retour', 'événements', 'félicite', 'discussion', 'hommes', 'solitaire', 'rêveur', 'merveilles']
+},
+]
+
+const lesMots=['atelier', 'Abdelkader', 'histoire', 'travail', 'essayer']
+let index = Math.floor(Math.random()*data.length)
+
+data[index].liste.sort( () => Math.random()-0.5 );
+
+const liste=document.querySelector('.liste');
+const texte=document.querySelector('.texte');
+const gaps= document.querySelectorAll('.gap');
+let motsPos=[];
+let x, y, initPos
+let replacement, allowMove=true
+l(liste.scrollHeight)
+liste.style.height = liste.scrollHeight + 'px';
+// Créer MOTS et GAPS
+let txte=data[index].texte
+for (let i=0; i<data[index].liste.length; i++){
+      //BOX / Mots liste
+    let mot = document.createElement('SPAN')
+    mot.setAttribute('id', i)
+    mot.setAttribute('class', 'mot')
+    mot.innerHTML= data[index].liste[i] // pas nécessaire, box est globale.
+    liste.appendChild(mot);
+    motsPos.push({x:mot.getBoundingClientRect().x,y:mot.getBoundingClientRect().y})  
+      //GAPS
+    let spans = `<span class="gap" data-rep=${data[index].liste[i]} id="gap${i}"> </span>`
+    let t = txte.replace(data[index].liste[i], spans)
+    txte = t;
+}
+//regular expression
+/*   let reg =""
+   for(let i=0; i<data[0].liste.length;i++){ reg += `${data[0].liste[i]}|`}
+   let re =reg.slice(0, reg.length-1);
+   var rg = new RegExp( re ,"gi");
+   let t=data[0].texte.replace( rg, ` <span class="gap"></span> `); 
+    texte.innerHTML=t    
+*/
+
+document.querySelector('.texte').innerHTML=txte
+
+//Absolute values
+const mots=document.querySelectorAll('.mot');
+mots.forEach((mot, index)=>{
+    mot.style.position ="absolute";
+    mot.style.left=motsPos[index].x+"px"
+    mot.style.top=motsPos[index].y+ "px"
+})
+
+//add touch events to drag boxes
+mots.forEach(item =>{
+ item.addEventListener('touchstart', (ev)=> {start(ev,item)})
+ item.addEventListener('touchmove', (ev)=> {moveMe(ev,item)})
+ item.addEventListener('touchend', (ev)=> {end(ev,item)})
+})
+
+function start(ev, box){
+  if(!allowMove) return
+  let margin = getComputedStyle(box).paddingLeft;
+  l(margin)
+  if(box.dataset.linkedTo) {
+    //box.dataset.linkedTo=null
+    box.removeAttribute('data-linked-to')
+  }
+  box.style.transition=""
+  let t=ev.touches[0]
+  initPos= {
+    x:box.getBoundingClientRect().x, 
+    y: box.getBoundingClientRect().y}  
+  x=t.pageX-box.getBoundingClientRect().left -box.parentElement.offsetLeft
+  y=t.pageY-box.getBoundingClientRect().top - box.parentElement.offsetTop
+}
+
+function moveMe(ev,box){
+  if(!allowMove) return
+  var t = ev.touches[0]
+  box.style.left = t.pageX - x - box.parentElement.offsetLeft + "px";
+  box.style.top = t.pageY - y - box.parentElement.offsetTop + "px";
+}
+
+function end(ev, box){
+  if(!allowMove) return
+  box.style.transition="all 0.3s"
+  let gap = document.elementsFromPoint(ev.changedTouches[0].clientX, ev.changedTouches[0].clientY);  
+  if(gap[1].classList.contains('gap')){
+    box.style.left= gap[1].getBoundingClientRect().x+"px"
+    box.style.top= gap[1].getBoundingClientRect().y+"px"
+    
+    box.dataset.linkedTo=gap[1].id;
+    l(box.innerText, gap[1].dataset.rep)
+    if(box.innerText==gap[1].dataset.rep){
+      box.dataset.correct="true"
+    }
+  } else{
+      box.style.left=motsPos[box.id].x +"px"
+      box.style.top=motsPos[box.id].y +"px"
+ }
+  
+ /*  for(let i=0; i<gaps.length;i++){
+    if(
+     	(posXmot-gap[1].getBoundingClientRect().x <=15 && posXmot-gap[1].getBoundingClientRect().x>=-15)
+      &&
+      (posYmot-gap[1].getBoundingClientRect().y<=15 && posYmot-gap[1].getBoundingClientRect().y>=-15))
+      {     
+       box.style.left= gap[1].getBoundingClientRect().x+"px"
+       box.style.top= gap[1].getBoundingClientRect().y+"px"
+       break
+      }
+      else{        
+        box.style.left= initPos.x + "px"
+        box.style.top= initPos.y + "px"
+        break
+      }
+   }*/
+
+  }
+const verifier=document.querySelector('.verifier');
+verifier.addEventListener('click',()=>{
+  allowMove=false
+  mots.forEach(mot=>{
+    if(!mot.dataset.linkedTo) { }
+    if (mot.dataset.correct=='true'){
+      l(mot.dataset.linkedTo)
+      mot.style.backgroundColor="rgb(183, 255, 116)"
+    } else{
+      mot.style.backgroundColor="#ff8888"
+    }
+
+      mot.removeEventListener('touchstart', start)
+      mot.removeEventListener('touchmove', moveMe)
+      mot.removeEventListener('touchend', end)
+  })
+
+})
+</script>
+</body>
+</html>
+
+
