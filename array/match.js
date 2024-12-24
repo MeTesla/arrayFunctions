@@ -1,4 +1,4 @@
-/*
+/* 
 1- click sur col1 (clearSelection, store value)
 2- click que col2 (clerSelection, sotore value)
    border-left-RED
