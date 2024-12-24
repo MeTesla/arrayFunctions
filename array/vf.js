@@ -9,9 +9,9 @@ export function vf(bloc, ind, variable){
 
   const question = document.querySelector('.question');
   const vrai=document.querySelector('.vrai');
-  const faux=document.querySelector('.faux')
-  
+  const faux=document.querySelector('.faux')  
   let reponse =''
+
 // DOM    
   question.innerHTML=vfQuestions[ind].question;
  
