@@ -17,7 +17,7 @@ export function qcm(bloc,ind, variable){
   c1.innerHTML=qcmQuestions[ind].c1;
   c2.innerHTML=qcmQuestions[ind].c2;
   c3.innerHTML=qcmQuestions[ind].c3;
-
+ 
 // SELECTION
 const lesChoix= document.querySelectorAll('.choix');
 lesChoix.forEach(choix=> {
