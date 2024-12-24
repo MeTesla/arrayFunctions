@@ -9,7 +9,7 @@
   - Tableau des réponses
 */
 
-/*
+/* 
 main.js :
   -Qst index | allQst[]  | feed msg  |  next qst | 
   -Add: progress, score

@@ -14,16 +14,15 @@ export function vf(bloc, ind, variable){
   let reponse =''
 // DOM    
   question.innerHTML=vfQuestions[ind].question;
-
+ 
 // SELECTION
 const vraiFaux=document.querySelectorAll('.vrai-faux');
-
 vraiFaux.forEach(vf=> {
- vf.addEventListener('click',()=> {
-  for (let vf1 of vraiFaux){vf1.classList.remove('selected') }
-  vf.classList.add('selected')
-  reponse=vf.innerHTML.toLowerCase();
- })
+    vf.addEventListener('click',()=> {
+    for (let vf1 of vraiFaux){vf1.classList.remove('selected') }
+    vf.classList.add('selected')
+    reponse=vf.innerHTML.toLowerCase();
+    })
 })
 
 //Verifier
@@ -41,7 +40,7 @@ verifier.addEventListener('click',()=>{
     }
 })
 
-    function code(){
+function code(){
  const html=`<vf-container>
  <h2 class="consigne">Réponds par vrai ou faux </h2>
  <div class="question"></div>
