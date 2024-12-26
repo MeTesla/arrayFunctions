@@ -83,17 +83,15 @@ verifier.addEventListener('click',()=>{
 
 
    function htmlCode(){
-   let html=`<h2 class="consigne">
-   Clique sur le mot puis sur son synonyme
-   </h2>
+   let html=`<h2 class="consigne">Clique sur le mot puis sur son synonyme</h2>
+   
    <div class="app-container">
-   <div class="col1">
+     <div class="col1">  </div>
+     <div class="col2">  </div>
    </div>
-   <div class="col2">
-   </div>
-   </div>
+   
    <div class="footer flx">
-   <div class="verifier flx">Suivant</div>
+     <div class="verifier flx">Vérifier</div>
    </div>  
    
    <style>
@@ -103,6 +101,7 @@ verifier.addEventListener('click',()=>{
       position: absolute;
       top: 0;
       left: 0;
+      background-color: red;
    }
  
    .match .app-container{
