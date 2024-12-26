@@ -1,14 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../squeleton/style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Lancer Quiz</title>
 </head>
+
 <body>
-    <div class="nav">
+<button id="btn">Lancer Quiz</button>
+<script type="module">
+import {qcmLength,vfLength, phrasesLength, phrases} from './data.js'
+import {qcm} from './qcm.js';
+import {vf} from './vf.js';
+import { ordreP } from './ordreP.js';
+import {match, matchLength} from './match.js'
+const l=console.log;
+
+  const btn=document.querySelector('#btn')
+  btn.onclick= function(){
+    const div=document.createElement('div');
+    div.className="qz-container";
+    div.innerHTML= html()
+    document.body.append(div)
+  
+const container = document.querySelector('.container')
+
+const qstIndex = document.querySelector('.index');
+const progress= document.querySelector('.progress');
+
+let index=0;
+let allQst=[];
+let mainFeed='a'
+
+// Create array of All activities 
+for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed) /*, ()=>vf(container,i)*/)}
+//for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed))}
+//for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed))}
+
+
+for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
+
+//shuffle :
+allQst.sort( ()=>{return Math.random() - 0.5 })
+//slice 10 items
+allQst= allQst.slice(0,5)
+
+//Progress bar
+let facteur = 100/allQst.length
+
+// FIRST ITEM
+allQst[index](container, index);
+
+// FEED + NEXT ITEMS
+const continu = document.querySelector('.continue')
+const feed = document.querySelector('.feed')
+continu.addEventListener('click',()=>{
+    index++
+    progress.style.width=(index+1)*facteur +"%";
+    qstIndex.innerText=index + '/' + allQst.length
+    feed.style.bottom = "-130px";
+    setTimeout(() => {
+        container.firstElementChild.remove();
+        allQst[index](container, index);    
+    }, 500);
+    
+    // Ecran de fin session
+})
+
+}
+  
+  function html(){
+    const code = `<div class="nav">
       <div class="entete">
         <div class="logo">Euduka</div>    
         <div class="index">0</div>
@@ -20,142 +84,152 @@
        </div>
 
      </div>
-    <div class="container">
-        
-    </div>
+    <div class="container"> </div>
+    
     <div class="feed">
         <div class="msg">Oui</div>
         <div class="continue">Continue</div> 
      </div>
-
-
-<style>  
-  *{margin:0; padding: 0; box-sizing: border-box;}
-  body{
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow :hidden ;
-  }
-  .nav{ 
-      height: 60px;
-      background-color: rgb(122, 122, 252);
-      padding: 15px;
+  
+  <style>
+   .nav{
+  height: 60px;
+  background-color: rgb(122, 122, 252);
+  padding: 15px;
   }
   .entete{
-    display:flex; justify-content: space-between; align-items: center;
+  display:flex; justify-content: space-between; align-items: center;
   }
   .progress-container{
-      position: relative;
-      width: 250px;
-      height: 5px;
-      background-color: whitesmoke;
-      border-radius: 2px;
-      margin: 15px auto;
+  position: relative;
+  width: 250px;
+  height: 5px;
+  background-color: whitesmoke;
+  border-radius: 2px;
+  margin: 15px auto;
 
   }
   .progress{
-    position: absolute;
-    height: 100%;
-    top: 0; left: 0;
-    background-color: green;
-    transition: width 0.4s ease;
+  position: absolute;
+  height: 100%;
+  top: 0; left: 0;
+  background-color: green;
+  transition: width 0.4s ease;
   }
- 
+
   .container{
-      flex:1;    
-      background-color: rgb(122, 122, 252);;
-      position: relative;
+  flex:1;
+  background-color: rgb(122, 122, 252);;
+  position: relative;
   }
   .qcm, .vf, .ordre-p, .match{
-      position: absolute;
-      height: 100%; width: 100%;
-      animation : anime 2s ease;
+  position: absolute;
+  height: 100%; width: 100%;
+  animation : anime 2s ease;
   }
   @keyframes anime {
-      from{opacity: 0}
-      to{opacity: 1}
+  from{opacity: 0}
+  to{opacity: 1}
   }
 
   .consigne{
-      ttext-align: center;
-      font-size: 1rem;      
-      margin: 10px  0 40px;
-      padding: 10px ;
-      color:white ;
+  ttext-align: center;
+  font-size: 1rem;
+  margin: 10px 0 40px;
+  padding: 10px ;
+  color:white ;
   }
   .question{
-      height: 100px; width: 90vw;
-      border: 1px solid white;
-      border-radius: 15px;
-      padding: 10px;
-      font-size: 1.2rem;
-      margin :auto;
+  height: 100px; width: 90vw;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 1.2rem;
+  margin :auto;
   }
   .choix{
-      height: 35px;
-      width: 80%;
-      line-height: 35px;
-      background-color: rgba(255, 255, 255, 0.425);
-      border-radius: 20px;
-      padding-left: 15px;
-      margin: 10px auto;
-      transition: all 0.2s linear;
+  height: 35px;
+  width: 80%;
+  line-height: 35px;
+  background-color: rgba(255, 255, 255, 0.425);
+  border-radius: 20px;
+  padding-left: 15px;
+  margin: 10px auto;
+  transition: all 0.2s linear;
   }
   .vrai-faux.selected, .choix.selected{
-   background-color: yellow;
+  background-color: yellow;
   }
   .vrai-faux{
-      width: 60px;
-      height: 50px;
-      background-color: rgba(255, 255, 255, 0.438);
-      border: 1px solid white;
-      border-radius: 10px;
-      margin: 30px 10px;
+  width: 60px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.438);
+  border: 1px solid white;
+  border-radius: 10px;
+  margin: 30px 10px;
   }
   .footer{
-      height: 10vh;
+  height: 10vh;
   }
   .verifier{
-      width: 120px;
-      height: 40px;
-      background-color:white ;
-      font-size: 1.2rem;
-      border-radius: 10px;
-      margin-top: 20px;
+  width: 120px;
+  height: 40px;
+  background-color:white ;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  margin-top: 20px;
   }
   .flx{
-      display:flex; justify-content: center; align-items: center;
+  display:flex; justify-content: center; align-items: center;
   }
 
   .feed{
-height: 130px;
-width: 100%;
-position:absolute;
-bottom: -130px;
-display: flex; flex-direction: column; 
-justify-content: space-evenly;align-items:center;
-background-color: #0288D1 ;      
-transition: all 0.3s ease-out; 
-}
-.feed .msg{
-font-size: 1.8rem;
-color: white;
-}
-.feed .continue{
-padding: 10px 30px;
-text-align: center;
+  height: 130px;
+  width: 100%;
+  position:absolute;
+  bottom: -130px;
+  display: flex; flex-direction: column;
+  justify-content: space-evenly;align-items:center;
+  background-color: #0288D1 ;
+  transition: all 0.3s ease-out;
+  }
+  .feed .msg{
+  font-size: 1.8rem;
+  color: white;
+  }
+  .feed .continue{
+  padding: 10px 30px;
+  text-align: center;
 
-border: 1px solid white;
-color: white;
-border-radius: 3px;
+  border: 1px solid white;
+  color: white;
+  border-radius: 3px;
+  }
+  .feed .continue:active{
+  transform-origin: top left;
+  scale: 0.98;
+  }
+  </style>`
+    return code
+  }
+</script>
+<style>
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+body{
+  position: relative;
 }
-.feed .continue:active{
-transform-origin: top left;
-scale: 0.98;
-}
-    </style>
-    <script type="module" src="main.js"></script>
-    <script type = "module" src="qcm.js"></script>
+  button{
+    padding: 10px 15px;
+    display: block;
+    margin: 100px auto;
+  }
+  .qz-container{
+    position: fixed; top:0;
+    width: 100vw; height: 100vh;
+    background-color: #F4DADA;
+  }
+</style>
 </body>
+
 </html>
