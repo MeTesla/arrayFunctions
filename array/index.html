@@ -24,8 +24,13 @@ const l=console.log;
     div.className="qz-container";
     div.innerHTML= html()
     document.body.append(div)
+    
+    createQuiz()
+  }  
+
   
-const container = document.querySelector('.container')
+  function createQuiz(){
+      const container = document.querySelector('.container')
 
 const qstIndex = document.querySelector('.index');
 const progress= document.querySelector('.progress');
@@ -69,7 +74,7 @@ continu.addEventListener('click',()=>{
     // Ecran de fin session
 })
 
-}
+    }
   
   function html(){
     const code = `<div class="nav">
@@ -171,9 +176,9 @@ continu.addEventListener('click',()=>{
   .footer{
   height: 10vh;
   width: 100%;
-  background-color: yellow;
+  bbackground-color: yellow;
   position: fixed;
-  bottom: 10px;
+  bottom: 30px;
   }
   .verifier{
   width: 120px;
