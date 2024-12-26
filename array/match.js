@@ -1,12 +1,3 @@
-/* 
-1- click sur col1 (clearSelection, store value)
-2- click que col2 (clerSelection, sotore value)
-   border-left-RED
-3- click sur col1
-4- click sur col2
-   border-left-GREEN
-*/
-
 //import {accueil} from '../../scripts/main.js'
 //import {pairs} from './apparaiement-db.js'
 //import confetti from 'https://cdn.skypack.dev/canvas-confetti';
