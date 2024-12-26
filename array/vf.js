@@ -1,6 +1,6 @@
- import { vfLength, vfQuestions } from "./data.js";
- 
-export function vf(bloc, ind, variable){
+import { vfLength, vfQuestions } from "./data.js";
+//V2 : mettre lien vers data dans  
+export function vf(bloc, ind, variable, data){
     const l=console.log;
     const div=document.createElement('div');
     div.classList.add('vf');
@@ -14,6 +14,8 @@ export function vf(bloc, ind, variable){
 
 // DOM    
   question.innerHTML=vfQuestions[ind].question;
+  //v2
+  //question.innerHTML=data[ind].question;
  
 // SELECTION
 const vraiFaux=document.querySelectorAll('.vrai-faux');
@@ -32,6 +34,8 @@ verifier.addEventListener('click',()=>{
     const feedMsg=feed.querySelector('.msg')
     feed.style.bottom='0px';
     if(reponse == vfQuestions[ind].rep){
+    //v2
+    //  if(reponse == data[ind].rep){
      variable= 'vf correct';
      feedMsg.innerText=variable;
     } else{

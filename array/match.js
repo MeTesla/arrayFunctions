@@ -1,12 +1,3 @@
-/* 
-1- click sur col1 (clearSelection, store value)
-2- click que col2 (clerSelection, sotore value)
-   border-left-RED
-3- click sur col1
-4- click sur col2
-   border-left-GREEN
-*/
-
 //import {accueil} from '../../scripts/main.js'
 //import {pairs} from './apparaiement-db.js'
 //import confetti from 'https://cdn.skypack.dev/canvas-confetti';
@@ -92,17 +83,15 @@ verifier.addEventListener('click',()=>{
 
 
    function htmlCode(){
-   let html=`<h2 class="consigne">
-   Clique sur le mot puis sur son synonyme
-   </h2>
+   let html=`<h2 class="consigne">Clique sur le mot puis sur son synonyme</h2>
+   
    <div class="app-container">
-   <div class="col1">
+     <div class="col1">  </div>
+     <div class="col2">  </div>
    </div>
-   <div class="col2">
-   </div>
-   </div>
+   
    <div class="footer flx">
-   <div class="verifier flx">Suivant</div>
+     <div class="verifier flx">Vérifier</div>
    </div>  
    
    <style>
@@ -112,6 +101,7 @@ verifier.addEventListener('click',()=>{
       position: absolute;
       top: 0;
       left: 0;
+      background-color: red;
    }
  
    .match .app-container{
