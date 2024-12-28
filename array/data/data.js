@@ -93,5 +93,5 @@ export const phrases=[`Le narrateur décrit dar chouafa et ses locataires`,
 `Sidi Mohammed a aimé Sidi El Arafi`,
 `Lalla Zoubida est une femme bavarde`
 ]
-
+ 
 export const phrasesLength=phrases.length;

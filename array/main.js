@@ -22,8 +22,11 @@ qcm.js
 import { vfQuestions } from "./data/data.js";
 import {vf} from './activities/vf.js';
 
-import {qcmLength,vfLength, phrasesLength, phrases} from './data/data.js'
+import { qcmQuestions } from "./data/data.js";
 import {qcm} from './activities/qcm.js';
+
+import {qcmLength,vfLength, phrasesLength, phrases} from './data/data.js'
+
 
 import { ordreP } from './activities/ordreP.js';
 import {match, matchLength} from './activities/match.js'
@@ -51,9 +54,7 @@ btn.onclick= function(){
     
     // Create array of All activities 
     for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
-    
-    
-    for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed) /*, ()=>vf(container,i)*/)}
+    for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed,qcmQuestions) /*, ()=>vf(container,i)*/)}
     for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed))}
     for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
     
