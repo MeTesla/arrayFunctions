@@ -33,21 +33,18 @@ import { matchMots, matchLength } from "./data/data.js"
 import { ordreP } from './activities/ordreP.js';
 import { phrases, phrasesLength } from "./data/data.js";
 
-l(phrases[3], phrasesLength)
-
 const btn=document.querySelector('#btn')
 btn.onclick= function(){
   const div=document.createElement('div');
   div.className="qz-container";
   div.innerHTML= html()
   document.body.append(div)
-  
   createQuiz()
 }  
   
   function createQuiz(){
+    //Varibales
     const container = document.querySelector('.container')
-
     const qstIndex = document.querySelector('.index');
     const progress= document.querySelector('.progress');
     
@@ -71,22 +68,22 @@ btn.onclick= function(){
     let facteur = 100/allQst.length
     
     // FIRST ITEM
-    allQst[index](container, index);
+    allQst[index](container, index); // -------- A RELIIIIIIIRE --------
     
     // FEED + NEXT ITEMS
     const continu = document.querySelector('.continue')
     const feed = document.querySelector('.feed')
     continu.addEventListener('click',()=>{
-        index++
-        progress.style.width=(index+1)*facteur +"%";
-        qstIndex.innerText=index + '/' + allQst.length
-        feed.style.bottom = "-130px";
-        setTimeout(() => {
-            container.firstElementChild.remove();
-            allQst[index](container, index);    
-        }, 500);
-        
-        // Ecran de fin session
+      index++
+      progress.style.width=(index+1)*facteur +"%";    // update progress bar
+      qstIndex.innerText=index + '/' + allQst.length  // update qst index
+      feed.style.bottom = "-130px";                   // Hide feed bloc
+      setTimeout(() => {
+          container.firstElementChild.remove();       // Remove Bloc
+          allQst[index](container, index);            // ------- A RELIRE -----
+      }, 500);
+      
+      // Ecran de fin session
     })
     
         }
