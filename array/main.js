@@ -8,7 +8,7 @@
   - Ecran de fin + nouvelle session
   - Tableau des réponses
 */
-
+ 
 /* 
 main.js :
   -Qst index | allQst[]  | feed msg  |  next qst | 
