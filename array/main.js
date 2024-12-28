@@ -32,7 +32,7 @@ import { matchMots, matchLength } from "./data/data.js"
 
 import { ordreP } from './activities/ordreP.js';
 import { phrases, phrasesLength } from "./data/data.js";
-
+ 
 const btn=document.querySelector('#btn')
 btn.onclick= function(){
   const div=document.createElement('div');
