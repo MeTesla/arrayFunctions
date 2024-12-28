@@ -19,7 +19,7 @@ export function ordreP(bloc, ind, variable, data){
 //.split(' ').sort(()=> Math.random() - 0.5);
 
 loadPhrase()
-
+ 
 function loadPhrase(){ 
    // Load phrases on DOM
    l(ind)
