@@ -18,9 +18,13 @@ qcm.js
   -UI  | qcm logic  | vérifier
 */
 
+//-------------Test DATA
+import { vfQuestions } from "./data/data.js";
+import {vf} from './activities/vf.js';
+
 import {qcmLength,vfLength, phrasesLength, phrases} from './data/data.js'
 import {qcm} from './activities/qcm.js';
-import {vf} from './activities/vf.js';
+
 import { ordreP } from './activities/ordreP.js';
 import {match, matchLength} from './activities/match.js'
 const l=console.log;
@@ -46,11 +50,11 @@ btn.onclick= function(){
     let mainFeed='a'
     
     // Create array of All activities 
+    for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
+    
+    
     for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed) /*, ()=>vf(container,i)*/)}
-    for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed))}
     for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed))}
-    
-    
     for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
     
     //shuffle :
