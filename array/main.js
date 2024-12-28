@@ -1,3 +1,4 @@
+const l=console.log;
 /*
 1- Add a question type 
 2- Continue with one ITEM logic
@@ -19,17 +20,18 @@ qcm.js
 */
 
 //-------------Test DATA 
-import { vfQuestions } from "./data/data.js";
+import { vfQuestions, vfLength } from "./data/data.js";
 import {vf} from './activities/vf.js';
 
-import {qcmLength,vfLength, phrasesLength, phrases} from './data/data.js'
+import {qcmLength, phrasesLength, phrases} from './data/data.js'
 import {qcm} from './activities/qcm.js';
 
 import { ordreP } from './activities/ordreP.js';
+
 import {match, matchLength} from './activities/match.js'
-const l=console.log;
 
 const btn=document.querySelector('#btn')
+
 btn.onclick= function(){
   const div=document.createElement('div');
   div.className="qz-container";
@@ -40,19 +42,16 @@ btn.onclick= function(){
 }  
   
   function createQuiz(){
+   //Variables 
     const container = document.querySelector('.container')
-
     const qstIndex = document.querySelector('.index');
     const progress= document.querySelector('.progress');
-    
     let index=0;
     let allQst=[];
     let mainFeed='a'
     
     // Create array of All activities 
     for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
-    
-    
     for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed) /*, ()=>vf(container,i)*/)}
     for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed))}
     for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
@@ -85,7 +84,7 @@ btn.onclick= function(){
         // Ecran de fin session
     })
     
-        }
+  }
 
   function html(){
     const code = `<div class="nav">
