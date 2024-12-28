@@ -1,8 +1,6 @@
-
 const l=console.log;
-import { phrases, phrasesLength } from "../data/data.js";
 
-export function ordreP(bloc, ind, variable){
+export function ordreP(bloc, ind, variable, data){
   /*
   Bloc : global container
   Ind : question item index
@@ -24,8 +22,9 @@ loadPhrase()
 
 function loadPhrase(){ 
    // Load phrases on DOM
-   ph=phrases[ind];
-   let onePhrase = phrases[ind].split(' ');
+   ph=data[ind];
+   l(ind)
+   let onePhrase = data[ind].split(' ');
    onePhrase.sort(()=>Math.random() - 0.5);
  
    onePhrase.forEach((item)=> {

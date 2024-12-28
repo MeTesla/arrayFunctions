@@ -1,5 +1,3 @@
-
-
 export function qcm(bloc,ind, variable, data){
     const l=console.log
     const div=document.createElement('div');

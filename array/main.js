@@ -19,17 +19,19 @@ qcm.js
 */
 
 //-------------Test DATA
-import { vfQuestions } from "./data/data.js";
+import { vfQuestions, vfLength } from "./data/data.js";
 import {vf} from './activities/vf.js';
 
-import { qcmQuestions } from "./data/data.js";
+import { qcmQuestions, qcmLength } from "./data/data.js";
 import {qcm} from './activities/qcm.js';
 
-import {qcmLength,vfLength, phrasesLength, phrases} from './data/data.js'
-
+import { match } from "./activities/match.js"
+import { matchMots, matchLength } from "./data/data.js"
 
 import { ordreP } from './activities/ordreP.js';
-import {match, matchLength} from './activities/match.js'
+import { phrases, phrasesLength } from "./data/data.js";
+
+
 const l=console.log;
 
 const btn=document.querySelector('#btn')
@@ -54,15 +56,15 @@ btn.onclick= function(){
     
     // Create array of All activities 
     for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
-    for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed,qcmQuestions) /*, ()=>vf(container,i)*/)}
-    for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed))}
-    for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
+    for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed,qcmQuestions) )}
+    for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed, ordreP))}
+    for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed, matchMots))}
     
     //shuffle :
     allQst.sort( ()=>{return Math.random() - 0.5 })
     
     //slice 10 items
-    allQst= allQst.slice(0,15)
+    allQst= allQst.slice(0,10)
     
     //Progress bar
     let facteur = 100/allQst.length

@@ -3,21 +3,11 @@
 //import confetti from 'https://cdn.skypack.dev/canvas-confetti';
 //import {confetti} from '../../assets/confetti.js'
 //import {popupFermer} from '../fermer/fermer.js'
-const matchMots = [
-   {mot: "Chat", syn:"Miaule"},
-   {mot: "Cheval", syn:"Hénit"},
-   {mot: "Poule", syn:"Glousse"},
-   {mot: "Grenouille", syn:"croisse"},
-   {mot: "Moteur", syn:"Vrombit"},
-   {mot: "Oiseau", syn:"Chante"},
-   {mot: "Chien", syn:"Aboit"},
-   {mot: "Vache", syn:"Meugle"},
-]
-export const matchLength = matchMots.length;
+
 const l=console.log;
 
 // ---------- APPARAIEMENT  ------------
-export function match(bloc, variable){
+export function match(bloc, variable, data){
    let div=document.createElement('div');
    div.className='match';
    div.innerHTML = htmlCode();  
@@ -26,17 +16,16 @@ export function match(bloc, variable){
  let col1=document.querySelector('.col1')
  let col2=document.querySelector('.col2')
 
- 
       // créer les divs
  for(let i=0; i<3; i++){
-   let alea=Math.floor(Math.random()*matchMots.length);
+   let alea=Math.floor(Math.random()*data.length);
    const mot=document.createElement('div');
    const syn=document.createElement('div');
    mot.className='mot';
    syn.className='syn';
-   mot.innerHTML=matchMots[alea].mot;
-   syn.innerHTML=matchMots[alea].syn;   
-   syn.dataset.syn=matchMots[alea].mot;
+   mot.innerHTML=data[alea].mot;
+   syn.innerHTML=data[alea].syn;   
+   syn.dataset.syn=data[alea].mot;
    col1.appendChild(mot);
    col2.appendChild(syn);
  }

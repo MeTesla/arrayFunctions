@@ -68,6 +68,18 @@ export const vfQuestions = [
 
 export const vfLength=vfQuestions.length;
 
+export const matchMots = [
+  { mot: "Chat", syn: "Miaule" },
+  { mot: "Cheval", syn: "Hénit" },
+  { mot: "Poule", syn: "Glousse" },
+  { mot: "Grenouille", syn: "croisse" },
+  { mot: "Moteur", syn: "Vrombit" },
+  { mot: "Oiseau", syn: "Chante" },
+  { mot: "Chien", syn: "Aboit" },
+  { mot: "Vache", syn: "Meugle" },
+]
+export const matchLength = matchMots.length
+
 export const phrases=[`Le narrateur décrit dar chouafa et ses locataires`,
 `Sidi Mohammed n'aime pas le bain maure`,
 `Lalla Zoubida se dispute avec Rahma`,
