@@ -17,11 +17,11 @@ main.js :
 qcm.js
   -UI  | qcm logic  | vérifier
 */
-import {qcmLength,vfLength, phrasesLength, phrases} from './data.js'
-import {qcm} from './qcm.js';
-import {vf} from './vf.js';
-import { ordreP } from './ordreP.js';
-import {match, matchLength} from './match.js'
+import {qcmLength,vfLength, phrasesLength, phrases} from './data/data.js'
+import {qcm} from './activities/qcm.js';
+import {vf} from './activities/vf.js';
+import { ordreP } from './activities/ordreP.js';
+import {match, matchLength} from './activities/match.js'
 const l=console.log;
 
 const container= document.querySelector('.container');

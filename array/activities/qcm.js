@@ -1,4 +1,4 @@
-import { qcmLength, qcmQuestions } from "./data.js";
+import { qcmLength, qcmQuestions } from "../data/data.js";
 
 export function qcm(bloc,ind, variable){
     const l=console.log

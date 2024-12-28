@@ -1,6 +1,6 @@
 
 const l=console.log;
-import { phrases, phrasesLength } from "./data.js";
+import { phrases, phrasesLength } from "../data/data.js";
 
 export function ordreP(bloc, ind, variable){
   /*

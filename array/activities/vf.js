@@ -1,4 +1,4 @@
-import { vfLength, vfQuestions } from "./data.js";
+import { vfLength, vfQuestions } from "../data/data.js";
 //V2 : mettre lien vers data dans  
 export function vf(bloc, ind, variable, data){
     const l=console.log;
