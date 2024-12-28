@@ -22,7 +22,6 @@ loadPhrase()
 
 function loadPhrase(){ 
    // Load phrases on DOM
-   ph=data[ind];
    l(ind)
    let onePhrase = data[ind].split(' ');
    onePhrase.sort(()=>Math.random() - 0.5);

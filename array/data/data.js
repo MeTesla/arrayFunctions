@@ -106,4 +106,4 @@ export const phrases=[`Le narrateur décrit dar chouafa et ses locataires`,
 `Lalla Zoubida est une femme bavarde`
 ]
  
-export const phrasesLength=phrases.length;
+export const phrasesLength = phrases.length;

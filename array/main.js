@@ -1,3 +1,5 @@
+const l=console.log;
+
 /*
 1- Add a question type 
 2- Continue with one ITEM logic
@@ -31,8 +33,7 @@ import { matchMots, matchLength } from "./data/data.js"
 import { ordreP } from './activities/ordreP.js';
 import { phrases, phrasesLength } from "./data/data.js";
 
-
-const l=console.log;
+l(phrases[3], phrasesLength)
 
 const btn=document.querySelector('#btn')
 btn.onclick= function(){
@@ -57,7 +58,7 @@ btn.onclick= function(){
     // Create array of All activities 
     for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
     for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed,qcmQuestions) )}
-    for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed, ordreP))}
+    for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed, phrases))}
     for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed, matchMots))}
     
     //shuffle :
