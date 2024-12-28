@@ -18,7 +18,7 @@ qcm.js
   -UI  | qcm logic  | vérifier
 */
 
-//-------------Test DATA
+//-------------Test DATA 
 import { vfQuestions } from "./data/data.js";
 import {vf} from './activities/vf.js';
 
