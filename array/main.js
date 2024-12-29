@@ -30,8 +30,9 @@ import { ordreP } from './activities/ordreP.js';
 
 import {match, matchLength} from './activities/match.js'
 
-const btn=document.querySelector('#btn')
+// ----------------------------------
 
+const btn=document.querySelector('#btn')
 btn.onclick= function(){
   const div=document.createElement('div');
   div.className="qz-container";
@@ -161,6 +162,7 @@ btn.onclick= function(){
   font-size: 1.2rem;
   margin :auto;
   }
+  
   .choix{
   height: 35px;
   width: 80%;
@@ -168,19 +170,25 @@ btn.onclick= function(){
   background-color: rgba(255, 255, 255, 0.425);
   border-radius: 20px;
   padding-left: 15px;
-  margin: 10px auto;
+  margin: 20px auto;
   transition: all 0.2s linear;
   }
+  
+  .c1 {
+    margin-top: 50px;
+  }
+
   .vrai-faux.selected, .choix.selected{
   background-color: yellow;
   }
   .vrai-faux{
-  width: 60px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   background-color: rgba(255, 255, 255, 0.438);
   border: 1px solid white;
   border-radius: 10px;
-  margin: 30px 10px;
+  margin: 60px 40px;
+  font-size: 20px;
   }
   .footer{
   height: 10vh;
