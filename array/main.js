@@ -1,5 +1,14 @@
 const l=console.log;
 /*
+  1- STYLE commun pour tous les appels
+     Où placer le fichier CSS.
+       import sheet from './style.css' assert { type: 'css' };
+       document.adoptedStyleSheets = [sheef]
+  2- ONE question quiz function : 
+      Solution: la boucle de création : i < 1 : ce qui limite les questions en une SEUL
+*/
+
+/*
 1- Add a question type 
 2- Continue with one ITEM logic
   a-
@@ -53,10 +62,10 @@ btn.onclick= function(){
     
     // Create array of All activities 
     for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
-    for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed) /*, ()=>vf(container,i)*/)}
+   /* for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed)}
     for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed))}
     for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
-    
+    */
     //shuffle :
     allQst.sort( ()=>{return Math.random() - 0.5 })
     

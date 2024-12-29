@@ -3,6 +3,8 @@
 //import confetti from 'https://cdn.skypack.dev/canvas-confetti';
 //import {confetti} from '../../assets/confetti.js'
 //import {popupFermer} from '../fermer/fermer.js'
+
+
 const matchMots = [
    {mot: "Chat", syn:"Miaule"},
    {mot: "Cheval", syn:"Hénit"},
