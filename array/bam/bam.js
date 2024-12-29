@@ -36,16 +36,16 @@ function createQuiz(){
 //shuffle :
     allQst.sort( ()=>{return Math.random() - 0.5 })
     
-    //slice 10 items
+//slice 10 items
     allQst= allQst.slice(0,15)
     
-    //Progress bar
+//Progress bar
     let facteur = 100/allQst.length
     
-    // FIRST ITEM
+// FIRST ITEM
     allQst[index](container, index);
     
-    // FEED + NEXT ITEMS
+// FEED + NEXT ITEMS
     const continu = document.querySelector('.continue')
     const feed = document.querySelector('.feed')
     continu.addEventListener('click',()=>{
