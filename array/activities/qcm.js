@@ -45,17 +45,48 @@ verifier.addEventListener('click',()=>{
    // Array false
   }
 }) 
- function code(){       
-  const html=`<div class="qcm-container">
-   <h2 class="consigne">Choisis la bonne réponse </h2>
-   <div class="question"></div>
-   <div class="c1 choix"></div>
-   <div class="c2 choix"></div>
-   <div class="c3 choix"></div>   
-   <div class="footer flx">
-    <div class="verifier flx">Vérifier</div>
-  </div>
-  </div>`
+ function code(){     
+  const html=`
+  <div class="qcm-container">
+      <div class="consigne"><span style="font-weight:bold">QCM - </span> Choisis la bonne réponse </div>
+      
+      <div class="question">
+        Quel était l'âge de Sidi Mohammed dans le roman La boîte à merveilles ?
+      </div>
+      
+      <div class="choix-container">
+        <div class="choix c1">Six ans</div>
+        <div class="choix c2">Sept ans</div>
+        <div class="choix c3">Huit ans  </div>
+      </div>
+      
+      <div class="verifier">Vérifier </div>
+    </div>
+  
+  <style>
+  .question{
+  flex-basis: 20%;
+  padding: 10px;
+  font-weight: bold;
+  border: 1px solid gray;
+  border-radius: 15px;  
+}
+ 
+.choix-container {
+ width : 100%;
+}
+.choix{
+  color: darkslategray;
+  border: 1px solid #ddd;
+  width: 100%;
+  padding: 8px 15px;
+  margin: 10px auto;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transition: .2s;
+}
+</style>`
   
   return html
     }

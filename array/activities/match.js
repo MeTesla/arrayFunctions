@@ -97,54 +97,9 @@ verifier.addEventListener('click',()=>{
    </div>  
    
    <style>
-   .match{
-      width:100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: red;
-   }
- 
-   .match .app-container{
-      height: 60%;
-      width: 90%;
-      margin: 20px auto;
-      display: flex;
-      justify-content: space-between
-   }
-
-   .app-container .col1, .app-container .col2{
-      width: 48%;
-      height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid white;
-      border-radius: 10px;
-   }
-
-   .col1 .mot, .col2 .syn{
-      width: 70%;
-      height: 40px;
-      color: dimgray;
-      background-color : white ;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 10px;
-      display: flex; justify-content: center; align-items: center;    
-      transition: scale 0.3s linear;   
-   }
-
-   .mot:active, .syn:active{
-   transform: scale(0.97)
-   }
-   .disactive{
-      opacity: 0.5;
-   }
-   </style>`
+   
+   </style>
+   `
       return html
    }
 }

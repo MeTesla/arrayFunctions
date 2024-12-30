@@ -61,8 +61,10 @@ btn.onclick= function(){
     let mainFeed='a'
     
     // Create array of All activities 
-    for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
-   /* for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed)}
+    for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed))}
+
+   /* 
+   for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
     for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed))}
     for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
     */
@@ -97,152 +99,80 @@ btn.onclick= function(){
   }
 
   function html(){
-    const code = `<div class="nav">
-      <div class="entete">
-        <div class="logo">Euduka</div>    
-        <div class="index">0</div>
-        <div class="menu"><i class="fa fa-bars" aria-hidden="true"></i></div>
-      </div>
-
-       <div class="progress-container">
-         <div class="progress">   </div>
-       </div>
-
+    const code = `<div class="header">
+  <div class="status">
+    <img src="./activities/img/previous.svg" alt=""> 
+    <div class="progress">
+      <div class="my-progress"> </div>
+    </div>
+    <div class="score">
+      <div class="my-score"> 20</div>
      </div>
-    <div class="container"> </div>
+
+  </div>
+</div>
+     <div class="container"> </div>
     
-    <div class="feed">
-        <div class="msg">Oui</div>
-        <div class="continue">Continue</div> 
+     <div class="feed">
+      <div class="msg">Oui</div>
+      <div class="continue">Continue</div> 
      </div>
-  
+    
   <style>
-   .nav{
-  height: 60px;
-  background-color: rgb(122, 122, 252);
-  padding: 15px;
-  }
-  .entete{
-  display:flex; justify-content: space-between; align-items: center;
-  }
-  .progress-container{
-  position: relative;
-  width: 250px;
-  height: 5px;
-  background-color: whitesmoke;
-  border-radius: 2px;
-  margin: 15px auto;
-
-  }
-  .progress{
-  position: absolute;
-  height: 100%;
-  top: 0; left: 0;
-  background-color: green;
-  transition: width 0.4s ease;
+   .header {
+    padding: 10px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 
-  .container{
-  flex:1;
-  background-color: rgb(122, 122, 252);;
-  position: relative;
-  }
-  .qcm, .vf, .ordre-p, .match{
-  position: absolute;
-  height: 100%; width: 100%;
-  animation : anime 2s ease;
-  }
-  @keyframes anime {
-  from{opacity: 0}
-  to{opacity: 1}
+  .hm{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
   }
 
-  .consigne{
-      font-size: 1rem;      
-      margin: 10px  0 40px;
-      padding: 10px ;
-      color:white ;
-  }
-  .question{
-  height: 100px; width: 90vw;
-  border: 1px solid white;
-  border-radius: 15px;
-  padding: 10px;
-  font-size: 1.2rem;
-  margin :auto;
+  .header img{
+    width: 30px;
   }
   
-  .choix{
-  height: 35px;
-  width: 80%;
-  line-height: 35px;
-  background-color: rgba(255, 255, 255, 0.425);
-  border-radius: 20px;
-  padding-left: 15px;
-  margin: 20px auto;
-  transition: all 0.2s linear;
+  .status{
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    align-items: center;
+    min-height: 40px;
+    margin-top: 0px;
+    padding: 0 15px;
+  }
+  .status .previous {border: 1px solid}
+  .status .previous img{
+    width: 25px;
+  }
+  .score .my-score{
+    width: 30px; height: 30px;
+    box-shadow: 0 0 3px limegreen; 
+    border-radius: 15px;
+    line-height: 30px; 
+    text-align: center;
+    font-weight: bold;
+  }
+  .texte span{
+    margin-bottom: -5px;
   }
   
-  .c1 {
-    margin-top: 50px;
+  .status .progress{
+    position: relative;
+    width: 80%;
+    height: 7px;
+    border: 1px solid gray;
+    border-radius: 3px;
   }
-
-  .vrai-faux.selected, .choix.selected{
-  background-color: yellow;
-  }
-  .vrai-faux{
-  width: 100px;
-  height: 100px;
-  background-color: rgba(255, 255, 255, 0.438);
-  border: 1px solid white;
-  border-radius: 10px;
-  margin: 60px 40px;
-  font-size: 20px;
-  }
-  .footer{
-  height: 10vh;
-  width: 100%;
-  bbackground-color: yellow;
-  position: fixed;
-  bottom: 30px;
-  }
-  .verifier{
-  width: 120px;
-  height: 40px;
-  background-color:white ;
-  font-size: 1.2rem;
-  border-radius: 10px;
-  margin-top: 20px;
-  }
-  .flx{
-  display:flex; justify-content: center; align-items: center;
-  }
-
-  .feed{
-  height: 130px;
-  width: 100%;
-  position:absolute;
-  bottom: -130px;
-  display: flex; flex-direction: column;
-  justify-content: space-evenly;align-items:center;
-  background-color: #0288D1 ;
-  transition: all 0.3s ease-out;
-  }
-  .feed .msg{
-  font-size: 1.8rem;
-  color: white;
-  }
-  .feed .continue{
-  padding: 10px 30px;
-  text-align: center;
-
-  border: 1px solid white;
-  color: white;
-  border-radius: 3px;
-  }
-  .feed .continue:active{
-  transform-origin: top left;
-  scale: 0.98;
+  
+  .progress .my-progress{
+    position : absolute;
+    height: 100%; width: 30%;
+    background-color: lightgreen;
   }
   </style>`
     return code
