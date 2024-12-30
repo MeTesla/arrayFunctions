@@ -33,11 +33,16 @@
     margin-top: 0px;
     padding: 0 15px;
   }
+  .status .previous {border: 1px solid}
+  .status .previous img{
+    width: 25px;
+  }
   .score .my-score{
-    width: 50px; height: 25px;
+    width: 30px; height: 30px;
     box-shadow: 0 0 3px limegreen; 
     border-radius: 15px;
-    line-height: 25px; text-align: center;
+    line-height: 30px; 
+    text-align: center;
     font-weight: bold;
   }
   .texte span{
