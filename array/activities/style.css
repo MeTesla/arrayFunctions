@@ -38,7 +38,7 @@
     margin-top: 0px;
     padding: 0 15px;
   }
-  .status .previous {border: 1px solid}
+
   .status .previous img{
     width: 25px;
   }
@@ -58,14 +58,15 @@
     position: relative;
     width: 80%;
     height: 7px;
-    border: 1px solid gray;
+    border: 1px solid white;
     border-radius: 3px;
   }
   
   .progress .my-progress{
     position : absolute;
-    height: 100%; width: 30%;
+    height: 100%;
     background-color: lightgreen;
+    transition: width 0.6s ease;
   }
 
   .container{
@@ -86,20 +87,19 @@
 }
 
 .verifier {
+  position: fixed;
+  bottom: 50px;
+  right: 50%;
+  transform: translateX(50%);
   width: 120px;
   text-align: center;
   border: 1px solid gray;
   padding: 10px 25px;
   font-weight: 700;
   letter-spacing: 2px;
-  margin: 40px auto 0px;
   background-color: white;
   border-radius: 10px;
   transition: transform .3s ease;
-}
-
-.verifier:active {
-  transform: scale(.95);
 }
 
 /*------------------------MAIN -------------------------*/

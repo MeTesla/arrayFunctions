@@ -4,18 +4,7 @@
 //import {confetti} from '../../assets/confetti.js'
 //import {popupFermer} from '../fermer/fermer.js'
 
-
-const matchMots = [
-   {mot: "Chat", syn:"Miaule"},
-   {mot: "Cheval", syn:"Hénit"},
-   {mot: "Poule", syn:"Glousse"},
-   {mot: "Grenouille", syn:"croisse"},
-   {mot: "Moteur", syn:"Vrombit"},
-   {mot: "Oiseau", syn:"Chante"},
-   {mot: "Chien", syn:"Aboit"},
-   {mot: "Vache", syn:"Meugle"},
-]
-export const matchLength = matchMots.length;
+import {matchMots, matchLength} from '../data/data.js'
 const l=console.log;
 
 // ---------- APPARAIEMENT  ------------
@@ -94,12 +83,7 @@ verifier.addEventListener('click',()=>{
    
    <div class="footer flx">
      <div class="verifier flx">Vérifier</div>
-   </div>  
-   
-   <style>
-   
-   </style>
-   `
+   </div>`
       return html
    }
 }

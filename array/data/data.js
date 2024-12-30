@@ -95,3 +95,16 @@ export const phrases=[`Le narrateur décrit dar chouafa et ses locataires`,
 ]
 
 export const phrasesLength=phrases.length;
+
+
+export const matchMots = [
+   {mot: "Chat", syn:"Miaule"},
+   {mot: "Cheval", syn:"Hénit"},
+   {mot: "Poule", syn:"Glousse"},
+   {mot: "Grenouille", syn:"croisse"},
+   {mot: "Moteur", syn:"Vrombit"},
+   {mot: "Oiseau", syn:"Chante"},
+   {mot: "Chien", syn:"Aboit"},
+   {mot: "Vache", syn:"Meugle"},
+]
+export const matchLength = matchMots.length;
