@@ -6,8 +6,8 @@ import {qcm} from '../activities/qcm.js';
 import { vfQuestions, vfLength } from "./data/dataBam.js";
 import {vf} from '../activities/vf.js';
 
-import {match, matchLength} from '../activities/match.js'
-
+import {matchMots, matchLength} from '../data/data.js'
+import {match} from '../activities/match.js';
 const btn=document.querySelector('#btn')
 
 btn.onclick= function(){

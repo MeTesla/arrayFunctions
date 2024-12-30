@@ -3,7 +3,7 @@
 //import confetti from 'https://cdn.skypack.dev/canvas-confetti';
 //import {confetti} from '../../assets/confetti.js'
 //import {popupFermer} from '../fermer/fermer.js'
-
+ 
 import {matchMots, matchLength} from '../data/data.js'
 const l=console.log;
 
