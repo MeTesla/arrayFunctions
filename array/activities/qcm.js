@@ -61,31 +61,10 @@ verifier.addEventListener('click',()=>{
       </div>
       
       <div class="verifier">Vérifier </div>
-    </div>
+  </div>
   
   <style>
-  .question{
-  flex-basis: 20%;
-  padding: 10px;
-  font-weight: bold;
-  border: 1px solid gray;
-  border-radius: 15px;  
-}
- 
-.choix-container {
- width : 100%;
-}
-.choix{
-  color: darkslategray;
-  border: 1px solid #ddd;
-  width: 100%;
-  padding: 8px 15px;
-  margin: 10px auto;
-  border-radius: 10px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  transition: .2s;
-}
+
 </style>`
   
   return html

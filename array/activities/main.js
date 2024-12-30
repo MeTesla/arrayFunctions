@@ -29,15 +29,15 @@ qcm.js
 */
 
 //-------------Test DATA 
-import { vfQuestions, vfLength } from "./data/data.js";
-import {vf} from './activities/vf.js';
+//import { vfQuestions, vfLength } from "../data/data.js";
+//import {vf} from './vf.js';
 
-import {qcmLength, phrasesLength, phrases} from './data/data.js'
-import {qcm} from './activities/qcm.js';
+import {qcmLength, phrasesLength, phrases} from '../data/data.js'
+import {qcm} from './qcm.js';
 
-import { ordreP } from './activities/ordreP.js';
+//import { ordreP } from './ordreP.js';
 
-import {match, matchLength} from './activities/match.js'
+//import {match, matchLength} from './match.js'
 
 // ----------------------------------
 
@@ -100,80 +100,21 @@ btn.onclick= function(){
 
   function html(){
     const code = `<div class="header">
-  <div class="status">
+   <div class="status">
     <img src="./activities/img/previous.svg" alt=""> 
     <div class="progress">
       <div class="my-progress"> </div>
-    </div>
-    <div class="score">
+   </div>
+   <div class="score">
       <div class="my-score"> 20</div>
      </div>
-
+   </div>
   </div>
-</div>
      <div class="container"> </div>
     
      <div class="feed">
       <div class="msg">Oui</div>
       <div class="continue">Continue</div> 
-     </div>
-    
-  <style>
-   .header {
-    padding: 10px 0 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-
-  .hm{
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 10px;
-  }
-
-  .header img{
-    width: 30px;
-  }
-  
-  .status{
-    display: flex;
-    justify-content: space-around;
-    gap: 15px;
-    align-items: center;
-    min-height: 40px;
-    margin-top: 0px;
-    padding: 0 15px;
-  }
-  .status .previous {border: 1px solid}
-  .status .previous img{
-    width: 25px;
-  }
-  .score .my-score{
-    width: 30px; height: 30px;
-    box-shadow: 0 0 3px limegreen; 
-    border-radius: 15px;
-    line-height: 30px; 
-    text-align: center;
-    font-weight: bold;
-  }
-  .texte span{
-    margin-bottom: -5px;
-  }
-  
-  .status .progress{
-    position: relative;
-    width: 80%;
-    height: 7px;
-    border: 1px solid gray;
-    border-radius: 3px;
-  }
-  
-  .progress .my-progress{
-    position : absolute;
-    height: 100%; width: 30%;
-    background-color: lightgreen;
-  }
-  </style>`
-    return code
+     </div>`
+ return code
   }

@@ -1,0 +1,201 @@
+  *{
+    margin:0; padding: 0; box-sizing: border-box;
+  }
+  
+  body {
+  position: relative;
+  }
+  
+  .qz-container{
+    position: fixed; top:0;
+    width: 100vw; height: 100vh;
+    background-color: rgb(122, 122,200) ;
+  }
+
+ .header {
+    padding: 10px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .hm{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+  }
+
+  .header img{
+    width: 30px;
+  }
+  
+  .status{
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    align-items: center;
+    min-height: 40px;
+    margin-top: 0px;
+    padding: 0 15px;
+  }
+  .status .previous {border: 1px solid}
+  .status .previous img{
+    width: 25px;
+  }
+  .score .my-score{
+    width: 30px; height: 30px;
+    box-shadow: 0 0 3px limegreen; 
+    border-radius: 15px;
+    line-height: 30px; 
+    text-align: center;
+    font-weight: bold;
+  }
+  .texte span{
+    margin-bottom: -5px;
+  }
+  
+  .status .progress{
+    position: relative;
+    width: 80%;
+    height: 7px;
+    border: 1px solid gray;
+    border-radius: 3px;
+  }
+  
+  .progress .my-progress{
+    position : absolute;
+    height: 100%; width: 30%;
+    background-color: lightgreen;
+  }
+
+  .container{
+    height: 80vh;
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 10px 30px;
+  }
+
+.consigne {
+  padding-bottom: 10px;
+  margin-right: auto;
+  color: blueviolet;
+  width: 100%;
+  border-bottom: 1px solid ;
+}
+
+.verifier {
+  width: 120px;
+  text-align: center;
+  border: 1px solid gray;
+  padding: 10px 25px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 40px auto 0px;
+  background-color: white;
+  border-radius: 10px;
+  transition: transform .3s ease;
+}
+
+.verifier:active {
+  transform: scale(.95);
+}
+
+/*------------------------MAIN -------------------------*/
+  .container {
+    flex: 1;
+    bbackground-color: rgb(122, 122, 252);;
+    position: relative;
+  }
+  .qcm, .vf, .ordre-p, .match {
+    position: absolute;
+    height: 100% ;width: 100% ;
+    animation: anime 2s ease;
+  }
+  @keyframes anime {
+    from { opacity: 0 }
+    to { opacity: 1 }
+  }
+
+  .consigne {
+    font-size: 1rem;
+    margin: 10px 0 40px;
+    padding: 10px;
+    color: white;
+  }
+  .question {
+    height: 100px;width: 90vw;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 1.2rem;
+    margin: auto;
+  }
+
+  .choix {
+    height: 35px;
+    width: 80% ;
+    line-height: 35px;
+    background-color: rgba(255, 255, 255, 0.425);
+    border-radius: 20px;
+    padding-left: 15px;
+    margin: 20px auto;
+    transition: all 0.2s linear;
+  }
+
+  .c1 {
+    margin-top: 50px;
+  }
+
+  .vrai-faux.selected, .choix.selected {
+      background-color: yellow;
+    }
+    .vrai-faux {
+      width: 100px;
+      height: 100px;
+      background-color: rgba(255, 255, 255, 0.438);
+      border: 1px solid white;
+      border-radius: 10px;
+      margin: 60px 40px;
+      font-size: 20 px;
+    }
+    .footer {
+      height: 10vh;
+      width: 100% ;
+      position: fixed;
+      bottom: 30px;
+    }
+    
+    .flx {
+      display: flex;justify-content: center;align-items: center;
+    }
+
+    .feed {
+      height: 130px;
+      width: 100% ;
+      position: absolute;
+      bottom: -130px;
+      display: flex;flex-direction: column;
+      justify-content: space-evenly;align-items: center;
+      background-color: #0288D1 ;
+      transition: all 0.3s ease-out;
+  }
+  .feed .msg{
+  font-size: 1.8rem;
+  color: white;
+  }
+  .feed .continue{
+  padding: 10px 30px;
+  text-align: center;
+
+  border: 1px solid white;
+  color: white;
+  border-radius: 3px;
+  }
+  .feed .continue:active{
+  transform-origin: top left;
+  scale: 0.98;
+  }
+  
+/*--------------------QCM------------------------*/
