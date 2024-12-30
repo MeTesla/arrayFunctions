@@ -44,15 +44,15 @@ verifier.addEventListener('click',()=>{
    feedMsg.innerHTML = variable;
    // Array false
   }
-})
+}) 
  function code(){       
   const html=`<div class="qcm-container">
    <h2 class="consigne">Choisis la bonne réponse </h2>
    <div class="question"></div>
-     <div class="c1 choix"></div>
-     <div class="c2 choix"></div>
-     <div class="c3 choix"></div>   
-  <div class="footer flx">
+   <div class="c1 choix"></div>
+   <div class="c2 choix"></div>
+   <div class="c3 choix"></div>   
+   <div class="footer flx">
     <div class="verifier flx">Vérifier</div>
   </div>
   </div>`

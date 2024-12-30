@@ -25,10 +25,9 @@
   }
   
   .status{
-    display: flex; 
-    flex-direction: row-reverse;
+    display: flex;
     justify-content: space-around;
-    gap: 10px;
+    gap: 15px;
     align-items: center;
     min-height: 40px;
     margin-top: 0px;
@@ -49,7 +48,8 @@
     position: relative;
     width: 80%;
     height: 7px;
-    border: 1px solid;
+    border: 1px solid gray;
+    border-radius: 3px;
   }
   
   .progress .my-progress{
