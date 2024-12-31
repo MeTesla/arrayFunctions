@@ -9,7 +9,7 @@
   .qz-container{
     position: fixed; top:0;
     width: 100vw; height: 100vh;
-    background-color: rgb(122, 122,200) ;
+    background-color: #0091EA
   }
 
  .header {
@@ -25,9 +25,7 @@
     padding: 5px 10px;
   }
 
-  .header img{
-    width: 30px;
-  }
+  
   
   .status{
     display: flex;
@@ -38,9 +36,17 @@
     margin-top: 0px;
     padding: 0 15px;
   }
-
+  .status img{
+    display: inline-block;
+  width:30px;
+  height:30px;
+  border: 1px solid;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: gray;
+}
   .status .previous img{
-    width: 25px;
+
   }
   .score .my-score{
     width: 30px; height: 30px;
@@ -205,7 +211,6 @@
       position: absolute;
       top: 0;
       left: 0;
-      bbackground-color: red;
    }
  
    .match .app-container{
