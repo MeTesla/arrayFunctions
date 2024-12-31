@@ -16,6 +16,10 @@ btn.onclick= function(){
   div.innerHTML= html()
   document.body.append(div)
   createQuiz()
+  
+  const prev = document.querySelector('.status img')
+  prev.onclick = () => div.remove()
+  
 }
 
 function createQuiz(){

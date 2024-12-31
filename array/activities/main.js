@@ -48,9 +48,12 @@ btn.onclick= function(){
   document.body.append(div)
   
   createQuiz()
-}  
-  
-  function createQuiz(){
+  const prev =  document.querySelector('.status img')
+   prev.onclick = ()=> div.remove()
+  }  
+
+
+ function createQuiz(){
    //Variables 
     const container = document.querySelector('.container')
     //const qstIndex = document.querySelector('.index');
@@ -103,7 +106,7 @@ btn.onclick= function(){
     
   }
 
-  function html(){
+ function html(){
     const code = `<div class="header">
    <div class="status">
     <img src="./activities/img/previous.svg" alt=""> 
@@ -115,7 +118,8 @@ btn.onclick= function(){
      </div>
    </div>
   </div>
-     <div class="container"> </div>
+
+   <div class="container"> </div>
     
      <div class="feed">
       <div class="msg">Oui</div>

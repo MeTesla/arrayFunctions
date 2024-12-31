@@ -33,17 +33,17 @@
     gap: 15px;
     align-items: center;
     min-height: 40px;
-    margin-top: 0px;
-    padding: 0 15px;
+    margin:10px 0px;
+    padding: 0 10px;
   }
   .status img{
     display: inline-block;
   width:30px;
   height:30px;
-  border: 1px solid;
+  bborder: 1px solid;
   border-radius: 50%;
   padding: 4px;
-  background-color: gray;
+  background-color: #EEEEEE;
 }
 
   .score .my-score{
@@ -53,6 +53,7 @@
     line-height: 30px; 
     text-align: center;
     font-weight: bold;
+    background-color: #EEEEEE;
   }
   .texte span{
     margin-bottom: -5px;
@@ -92,7 +93,7 @@
 
 .verifier {
   position: fixed;
-  bottom: 50px;
+  bottom: 40px;
   right: 50%;
   transform: translateX(50%);
   width: 120px;
