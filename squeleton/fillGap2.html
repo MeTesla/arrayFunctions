@@ -27,9 +27,6 @@
     <div class="score">
       <div class="my-score"> 20</div>
      </div>
-
-
-
   </div>
 </div>
 
@@ -172,11 +169,12 @@ const texte=document.querySelector('.texte');
 const gaps= document.querySelectorAll('.gap');
 let motsPos=[];
 let x, y, initPos
-let replacement, allowMove=true
+let replacement, allowMove=true 
 l(liste.scrollHeight)
 liste.style.height = liste.scrollHeight + 'px';
 // Créer MOTS et GAPS
 let txte=data[index].texte
+
 for (let i=0; i<data[index].liste.length; i++){
       //BOX / Mots liste
     let mot = document.createElement('SPAN')
@@ -201,7 +199,7 @@ for (let i=0; i<data[index].liste.length; i++){
 
 document.querySelector('.texte').innerHTML=txte
 
-//Absolute values
+//Liste : absolute values
 const mots=document.querySelectorAll('.mot');
 mots.forEach((mot, index)=>{
     mot.style.position ="absolute";
@@ -276,6 +274,7 @@ function end(ev, box){
    }*/
 
   }
+  
 const verifier=document.querySelector('.verifier');
 verifier.addEventListener('click',()=>{
   allowMove=false

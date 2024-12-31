@@ -29,11 +29,12 @@ qcm.js
 */
 
 // Les chemins sont RELATIFS à main.js
-import {qcmLength, phrasesLength, phrases, vfQuestions, vfLength, matchMots, matchLength} from '../data/data.js'
+import {qcmLength, phrasesLength, phrases, vfQuestions, vfLength, matchMots, matchLength, fillGapLength } from '../data/data.js'
 
 import {vf} from './vf.js';
 import {qcm} from './qcm.js';
 import {match} from './match.js'
+import {fillGap} from './fillGap.js'
 //import { ordreP } from './ordreP.js';
 
 
@@ -63,12 +64,13 @@ btn.onclick= function(){
     let mainFeed='a'
     
     // Create array of All activities 
-    for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed))}
-    for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
+    //for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed))}
+   // for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
    
    
     //for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed))}
-    for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
+  //  for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
+    for(let i=0; i<fillGapLength; i++){allQst.push(()=>fillGap(container, mainFeed))}
    
     //shuffle :
     allQst.sort( ()=>{return Math.random() - 0.5 })

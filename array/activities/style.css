@@ -250,3 +250,41 @@
    .disactive{
       opacity: 0.5;
    }
+   
+   
+   /*---------------- FILL GAP -------------------- */
+ .liste{
+    min-height: 110px;
+    margin: 10px auto;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .liste span{    
+    text-align: center;
+    background-color: #e2eaff;
+    padding: 0 5px;
+    margin: 0 5px 5px 0;
+    line-height: 25px;
+  }
+  
+  .texte{
+    line-height: 30px;
+    margin: 5px auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .gap, .liste span{
+    
+    height: 25px;
+    display: inline-block;   
+    border-radius: 4px;
+  }
+  .gap{    
+    min-width: 80px;
+    margin-bottom: -8px;
+    border: 1px solid coral;
+  }

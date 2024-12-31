@@ -12,6 +12,7 @@ export function qcm(bloc,ind, variable){
     const c2=document.querySelector('.c2');
     const c3=document.querySelector('.c3');
     let reponse='';
+
 // DOM    
   question.innerHTML=qcmQuestions[ind].question;
   c1.innerHTML=qcmQuestions[ind].c1;
