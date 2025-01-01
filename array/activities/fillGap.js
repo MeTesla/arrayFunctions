@@ -1,5 +1,6 @@
 import {fillGapData, fillGapLength} from '../data/data.js'
 const l=console.log
+
 export function fillGap(bloc,ind, variable){
   const l=console.log
   const div=document.createElement('div');
@@ -32,22 +33,16 @@ export function fillGap(bloc,ind, variable){
       //save positions in array
       motsPos.push({x:mot.getBoundingClientRect().x,y:mot.getBoundingClientRect().y})  
         //GAPS
+        l(motsPos[0])
       let spans = `<span class="gap" data-rep=${fillGapData[index].liste[i]} id="gap${i}"> </span>`
       let t = txte.replace(fillGapData[index].liste[i], spans)
       txte = t;
+      
   }
-  
+
     const gaps= document.querySelectorAll('.gap');
     l(gaps.length)
-  //regular expression
-  /*   let reg =""
-     for(let i=0; i<fillGap[0].liste.length;i++){ reg += `${fillGap[0].liste[i]}|`}
-     let re =reg.slice(0, reg.length-1);
-     var rg = new RegExp( re ,"gi");
-     let t=fillGap[0].texte.replace( rg, ` <span class="gap"></span> `); 
-      texte.innerHTML=t    
-  */
-  
+  /*
   document.querySelector('.texte').innerHTML=txte
   
   //Liste : absolute values to mots liste
@@ -126,7 +121,7 @@ export function fillGap(bloc,ind, variable){
     })
 
 })
-
+*/
 function code(){
   const html = `  <div class="container">
     <div class="consigne">
