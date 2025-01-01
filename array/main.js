@@ -1,3 +1,13 @@
+const l=console.log;
+/*
+  1- STYLE commun pour tous les appels
+     Où placer le fichier CSS.
+       import sheet from './style.css' assert { type: 'css' };
+       document.adoptedStyleSheets = [sheef]
+  2- ONE question quiz function : 
+      Solution: la boucle de création : i < 1 : ce qui limite les questions en une SEUL
+*/
+
 /*
 1- Add a question type 
 2- Continue with one ITEM logic
@@ -19,15 +29,17 @@ qcm.js
 */
 
 //-------------Test DATA 
-import { vfQuestions } from "./data/data.js";
+import { vfQuestions, vfLength } from "./data/data.js";
 import {vf} from './activities/vf.js';
 
-import {qcmLength,vfLength, phrasesLength, phrases} from './data/data.js'
+import {qcmLength, phrasesLength, phrases} from './data/data.js'
 import {qcm} from './activities/qcm.js';
 
 import { ordreP } from './activities/ordreP.js';
+
 import {match, matchLength} from './activities/match.js'
-const l=console.log;
+
+// ----------------------------------
 
 const btn=document.querySelector('#btn')
 btn.onclick= function(){
@@ -39,23 +51,24 @@ btn.onclick= function(){
 }  
   
   function createQuiz(){
+<<<<<<< HEAD
     //Varibales
+=======
+   //Variables 
+>>>>>>> cf42938ed4eeebc71446870bcd5216eb012d17d7
     const container = document.querySelector('.container')
     const qstIndex = document.querySelector('.index');
     const progress= document.querySelector('.progress');
-    
     let index=0;
     let allQst=[];
     let mainFeed='a'
     
     // Create array of All activities 
     for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
-    
-    
-    for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed) /*, ()=>vf(container,i)*/)}
+   /* for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed)}
     for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed))}
     for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
-    
+    */
     //shuffle :
     allQst.sort( ()=>{return Math.random() - 0.5 })
     
@@ -84,7 +97,7 @@ btn.onclick= function(){
       // Ecran de fin session
     })
     
-        }
+  }
 
   function html(){
     const code = `<div class="nav">
@@ -161,6 +174,7 @@ btn.onclick= function(){
   font-size: 1.2rem;
   margin :auto;
   }
+  
   .choix{
   height: 35px;
   width: 80%;
@@ -168,19 +182,25 @@ btn.onclick= function(){
   background-color: rgba(255, 255, 255, 0.425);
   border-radius: 20px;
   padding-left: 15px;
-  margin: 10px auto;
+  margin: 20px auto;
   transition: all 0.2s linear;
   }
+  
+  .c1 {
+    margin-top: 50px;
+  }
+
   .vrai-faux.selected, .choix.selected{
   background-color: yellow;
   }
   .vrai-faux{
-  width: 60px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   background-color: rgba(255, 255, 255, 0.438);
   border: 1px solid white;
   border-radius: 10px;
-  margin: 30px 10px;
+  margin: 60px 40px;
+  font-size: 20px;
   }
   .footer{
   height: 10vh;

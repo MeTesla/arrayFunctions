@@ -99,7 +99,7 @@ font-size: 35px;
   height:25vh;
   overflow-Y: auto;
   width: 85vw;
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 20px;
   margin: 10px auto;
   padding: 10px;
