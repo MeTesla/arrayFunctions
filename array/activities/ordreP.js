@@ -71,58 +71,7 @@ verifier.addEventListener('click',()=>{
   <div class="verifier flx">Verifier</div>
 </div>
 <style>
-*{margin: 0 ; padding:0; box-sizing: border-box;}
 
-:root{
---pr: white;
---secc:#D8D6BD;
---sec:#6F6F6F;
---secf:#2C2C2C;
---comp:#E89332;
---correct: rgb(80 199 86);
---incorrect: rgb(255, 86, 94);
-}
-
-.ordre-p .score{
-height: 70px;
-width: 70px;
-line-height: 70px;
-text-align: center;
-margin: 15px auto;
-border: 3px solid white;
-border-radius: 50%;
-box-sizing: content-box;
-font-size: 35px;
-}
-
-.ordre-p .recepteur, .ordre-p .emetteur{
-  height:25vh;
-  overflow-Y: auto;
-  width: 85vw;
-  border: 1px solid white;
-  border-radius: 20px;
-  margin: 10px auto;
-  padding: 10px;
-  bbackground-color: rgba(255, 255, 255, 0.425);
-}
-
-.ordre-p .emetteur span, .ordre-p .recepteur span{
-display: inline-block;
-padding: 5px 10px;
-text-align: center;
-font-size: 16px;
-margin: 3px;
-border-radius: 8px;
-background-color: var(--pr);
-color: var(--secf);
-font-weight :500 ;
-/*cursor: pointer; cree prob dans mobile*/
-user-select: none;
-}
-
-.emetteur span:active, .recepteur span:active{
-transform: scale(.95);
-}
 </style>`
  return html
 } 

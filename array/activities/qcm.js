@@ -12,6 +12,7 @@ export function qcm(bloc,ind, variable){
     const c2=document.querySelector('.c2');
     const c3=document.querySelector('.c3');
     let reponse='';
+
 // DOM    
   question.innerHTML=qcmQuestions[ind].question;
   c1.innerHTML=qcmQuestions[ind].c1;
@@ -44,18 +45,28 @@ verifier.addEventListener('click',()=>{
    feedMsg.innerHTML = variable;
    // Array false
   }
-})
- function code(){       
-  const html=`<div class="qcm-container">
-   <h2 class="consigne">Choisis la bonne réponse </h2>
-   <div class="question"></div>
-     <div class="c1 choix"></div>
-     <div class="c2 choix"></div>
-     <div class="c3 choix"></div>   
-  <div class="footer flx">
-    <div class="verifier flx">Vérifier</div>
+}) 
+ function code(){     
+  const html=`
+  <div class="qcm-container">
+      <div class="consigne"><span style="font-weight:bold">QCM - </span> Choisis la bonne réponse </div>
+      
+      <div class="question">
+        Quel était l'âge de Sidi Mohammed dans le roman La boîte à merveilles ?
+      </div>
+      
+      <div class="choix-container">
+        <div class="choix c1">Six ans</div>
+        <div class="choix c2">Sept ans</div>
+        <div class="choix c3">Huit ans  </div>
+      </div>
+      
+      <div class="verifier">Vérifier </div>
   </div>
-  </div>`
+  
+  <style>
+
+</style>`
   
   return html
     }
