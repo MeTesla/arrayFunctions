@@ -2,53 +2,48 @@ import {fillGapData, fillGapLength} from '../data/data.js'
 const l=console.log
 
 export function fillGap(bloc,ind, variable){
-  const l=console.log
   const div=document.createElement('div');
   div.classList.add('fill-gap');   
   div.innerHTML=code();
   bloc.appendChild(div);
 
-  let index = Math.floor(Math.random()*fillGapLength)
-    fillGapData[index].liste.sort( () => Math.random()-0.5 );
+  let index = Math.floor(Math.random()*fillGapLength) // créer index aléatoire
+  fillGapData[index].liste.sort( () => Math.random()-0.5 ); // shuffle DATA
   
   const liste=document.querySelector('.liste');
   const texte=document.querySelector('.texte');
-  
+  const gaps= document.querySelectorAll('.gap');
+
   let motsPos=[];
   let x, y, initPos
-  let replacement, allowMove=true 
+  let allowMove=true 
   liste.style.height = liste.scrollHeight + 'px';
-  l(liste.style.scrollHeight)
-  // Créer MOTS et GAPS
-  let txte=fillGapData[index].texte
   
+  // mots / gaps / motsAbsPos
+  let txte=fillGapData[index].texte
   for (let i=0; i<fillGapData[index].liste.length; i++){
-        //BOX / Mots liste
-      let mot = document.createElement('SPAN')
+        //Créer les Mots dans liste
+      let mot = document.createElement('span')
       mot.setAttribute('id', i)
       mot.setAttribute('class', 'mot')
-      mot.innerHTML= fillGapData[index].liste[i] // pas nécessaire, box est globale.
+      mot.innerHTML= fillGapData[index].liste[i]
       liste.appendChild(mot);
   
       //save positions in array
       motsPos.push({x:mot.getBoundingClientRect().x,y:mot.getBoundingClientRect().y})  
-        //GAPS
-        l(motsPos[0])
+      //GAPS
       let spans = `<span class="gap" data-rep=${fillGapData[index].liste[i]} id="gap${i}"> </span>`
       let t = txte.replace(fillGapData[index].liste[i], spans)
-      txte = t;
-      
+      txte = t;      
   }
-
-    const gaps= document.querySelectorAll('.gap');
-    l(gaps.length)
-  /*
+  l(motsPos)
+  
   document.querySelector('.texte').innerHTML=txte
   
   //Liste : absolute values to mots liste
   const mots=document.querySelectorAll('.mot');
   mots.forEach((mot, index)=>{
-      mot.style.position ="absolute";
+      //mot.style.position ="absolute";
       mot.style.left=motsPos[index].x+"px"
       mot.style.top=motsPos[index].y+ "px"
   })
@@ -75,6 +70,7 @@ export function fillGap(bloc,ind, variable){
       y: box.getBoundingClientRect().y}  
     x=t.pageX-box.getBoundingClientRect().left -box.parentElement.offsetLeft
     y=t.pageY-box.getBoundingClientRect().top - box.parentElement.offsetTop
+    box.style.position = "absolute"
   }
   
   function moveMe(ev,box){
@@ -121,16 +117,14 @@ export function fillGap(bloc,ind, variable){
     })
 
 })
-*/
+
 function code(){
-  const html = `  <div class="container">
-    <div class="consigne">
+  const html = `<div class="consigne">
       Je glisse les mots de la liste à l'espace correct
     </div>
     <div class="liste">  </div>
     <div class="texte">  </div>
-    <div class="verifier">Vérifier</div>
-  </div>`
+    <div class="verifier">Vérifier</div>`
   
   return html
 }
