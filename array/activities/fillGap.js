@@ -30,9 +30,7 @@ let txte=data[index].texte
       mot.innerHTML= data[index].liste[i] // pas nécessaire, box est globale.
       liste.appendChild(mot);
 
-      motsPos.push({x:mot.getBoundingClientRect().x ,
-                    y:mot.getBoundingClientRect().y - mot.parentElement.offsetTop
-      })  
+      
 
 
       //GAPS
@@ -44,12 +42,17 @@ let txte=data[index].texte
   document.querySelector('.texte').innerHTML=txte
 
   const mots=document.querySelectorAll('.mot');
+  mots.forEach(mot=>{
+    motsPos.push({x:mot.offsetLeft,
+                    y:mot.offsetTop
+      })  
+  })
   mots.forEach((mot, index)=>{
       mot.style.position ="absolute";
-      mot.style.left=motsPos[index].x +"px"
-      mot.style.top=motsPos[index].y +"px"
+      mot.style.left=motsPos[index].x +'px'
+      mot.style.top=motsPos[index].y +'px'
   })
-
+l(motsPos[0])
 //add touch events to drag boxes
 mots.forEach(item =>{
   item.addEventListener('touchstart', (ev)=> {start(ev,item)})
@@ -70,7 +73,7 @@ mots.forEach(item =>{
    initPos= {
      x: box.getBoundingClientRect().x, 
      y: box.getBoundingClientRect().y}  
-   x=t.pageX-box.getBoundingClientRect().left -box.parentElement.offsetLeft
+   x=t.pageX-box.getBoundingClientRect().left - box.parentElement.offsetLeft
    y=t.pageY-box.getBoundingClientRect().top - box.parentElement.offsetTop
  }
  
@@ -98,9 +101,6 @@ mots.forEach(item =>{
        box.style.left=motsPos[box.id].x +"px"
        box.style.top=motsPos[box.id].y +"px"
   }
-   
- 
- 
    }
 
 
@@ -114,16 +114,17 @@ function code(){
     <div class="verifier">Vérifier</div>
     <style>
     .fill-gap{
-    border: 1px solid
-      
+    border: 1px solid;
     } 
   .liste{
+    position: relative ;
     width: 90vw;
     min-height: 90px;
     margin: 10px auto;
     border: 1px solid white;
     border-radius: 10px;
     padding: 10px;
+    display:flex; flex-wrap: wrap;
   }
   
   .liste span{    
