@@ -118,7 +118,7 @@ btn.onclick= function(){
    <div class="score">
       <div class="my-score"> 20</div>
      </div>
-   </div>
+   </div> 
   </div>
 
    <div class="container"> </div>

@@ -9,7 +9,7 @@ export function fillGap(bloc,ind, variable){
 
   let index = Math.floor(Math.random()*data.length)
   data[index].liste.sort( () => Math.random()-0.5 );
-
+  const header= document.querySelector('.qz-container .header')
   const liste=document.querySelector('.liste');
   const texte=document.querySelector('.texte');
 
@@ -31,7 +31,8 @@ let txte=data[index].texte
       liste.appendChild(mot);
 
       motsPos.push({x:mot.getBoundingClientRect().x ,
-                    y:mot.getBoundingClientRect().y - mot.parentElement.offsetTop})  
+                    y:mot.getBoundingClientRect().y - mot.parentElement.offsetTop
+      })  
 
 
       //GAPS
@@ -45,8 +46,8 @@ let txte=data[index].texte
   const mots=document.querySelectorAll('.mot');
   mots.forEach((mot, index)=>{
       mot.style.position ="absolute";
-      mot.style.left=motsPos[index].x+"px"
-      mot.style.top=motsPos[index].y+ "px"
+      mot.style.left=motsPos[index].x +"px"
+      mot.style.top=motsPos[index].y +"px"
   })
 
 //add touch events to drag boxes
@@ -112,13 +113,15 @@ function code(){
     <div class="texte">  </div>
     <div class="verifier">Vérifier</div>
     <style>
-    .container{
-    border: 1px solid}
+    .fill-gap{
+    border: 1px solid
+      
+    } 
   .liste{
     width: 90vw;
-    min-height: 110px;
+    min-height: 90px;
     margin: 10px auto;
-    border: 1px solid gray;
+    border: 1px solid white;
     border-radius: 10px;
     padding: 10px;
   }

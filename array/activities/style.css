@@ -13,7 +13,7 @@
   }
 
  .header {
-    padding: 10px 0 0;
+    ppadding: 10px 0 0;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

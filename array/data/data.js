@@ -127,8 +127,8 @@ export const data=[
 },
 
 {
-'texte': `Le narrateur raconte sa journée au Msid où le temps passe lentement en attendant la sortie. Ensuite, Sidi Mohammed relate le souvenir de la disparition de Zineb, et comment sa mère réussit à la retrouver à la maison des Idrissides. Pour remercier Dieu, Rahma prépare un repas pour les mendiants. Toutes les voisines y participent de bon cœur.`,
-'liste': ['Msid', 'lentement', 'disparition', 'retrouver', 'remercier', 'mendiants', 'voisines']
+'texte': `Le narrateur raconte sa journée au Msid. Ensuite, Sidi Mohammed relate le souvenir de la disparition de Zineb, et comment sa mère réussit à la retrouver à la maison des Idrissides. Pour remercier Dieu, Rahma prépare un repas pour les mendiants.`,
+'liste': ['Msid', 'disparition', 'retrouver', 'remercier', 'mendiants']
 },
 
 {
@@ -147,7 +147,7 @@ export const data=[
 },
 
 {
-'texte': `Le lendemain, le petit sidi Mohammed accompagne son père au souk pour acheter les jouets et un cierge pour le fqih. La veille de Achoura, il passe la soirée en jouant de ses instruments de musique. Le jour de Achoura, le petit enfant se réveille tôt et met ses vêtements neufs avant d'aller au Msid célébrer cette journée exceptionnelle. Après le repas, Lalla Aicha vient rendre visite à la famille du narrateur.`,
+'texte': `Sidi Mohammed accompagne son père au souk pour acheter les jouets. La veille de Achoura, il passe la soirée en jouant de ses instruments de musique. Le jour de Achoura, le petit enfant se réveille tôt et met ses vêtements neufs. Après le repas, Lalla Aicha vient rendre visite à la famille du narrateur.`,
 'liste': ['accompagne', 'souk', 'jouets', 'soirée', 'musique', 'tôt', 'Msid', 'exceptionnelle']
 },
 
