@@ -16,7 +16,6 @@ export function fillGap(bloc,ind, variable){
   let motsPos=[];
   let x, y, initPos
   let allowMove=true 
-  l(liste.scrollHeight)
   liste.style.height = liste.scrollHeight + 'px';
 
 
@@ -52,7 +51,7 @@ let txte=data[index].texte
       mot.style.left=motsPos[index].x +'px'
       mot.style.top=motsPos[index].y +'px'
   })
-l(motsPos[0])
+
 //add touch events to drag boxes
 mots.forEach(item =>{
   item.addEventListener('touchstart', (ev)=> {start(ev,item)})
@@ -63,7 +62,7 @@ mots.forEach(item =>{
  function start(ev, box){
    if(!allowMove) return
    let margin = getComputedStyle(box).paddingLeft;
-   l(margin)
+   
    if(box.dataset.linkedTo) {
      //box.dataset.linkedTo=null
      box.removeAttribute('data-linked-to')
@@ -73,8 +72,8 @@ mots.forEach(item =>{
    initPos= {
      x: box.getBoundingClientRect().x, 
      y: box.getBoundingClientRect().y}  
-   x=t.pageX-box.getBoundingClientRect().left - box.parentElement.offsetLeft
-   y=t.pageY-box.getBoundingClientRect().top - box.parentElement.offsetTop
+   x=t.pageX-box.offsetLeft - box.parentElement.offsetLeft
+   y=t.pageY-box.offsetTop - box.parentElement.offsetTop
  }
  
  function moveMe(ev,box){
@@ -85,15 +84,19 @@ mots.forEach(item =>{
  }
  
  function end(ev, box){
+   
    if(!allowMove) return
    box.style.transition="all 0.3s"
    let gap = document.elementsFromPoint(ev.changedTouches[0].clientX, ev.changedTouches[0].clientY);  
+    l( gap[1].getBoundingClientRect().x)
    if(gap[1].classList.contains('gap')){
-     box.style.left= gap[1].getBoundingClientRect().x+"px"
-     box.style.top= gap[1].getBoundingClientRect().y+"px"
-     
+    // box.style.position='static'
+    // gap[1].appendChild(box) 
+  //  l(gap[1])
+    box.style.left= gap[1].getBoundingClientRect().x +"px"
+    box.style.top=  gap[1].getBoundingClientRect().y+"px"
+     box.style.backgroundColor='red'
      box.dataset.linkedTo=gap[1].id;
-     l(box.innerText, gap[1].dataset.rep)
      if(box.innerText==gap[1].dataset.rep){
        box.dataset.correct="true"
      }
@@ -102,7 +105,6 @@ mots.forEach(item =>{
        box.style.top=motsPos[box.id].y +"px"
   }
    }
-
 
 
 function code(){
@@ -114,7 +116,7 @@ function code(){
     <div class="verifier">Vérifier</div>
     <style>
     .fill-gap{
-    border: 1px solid;
+   
     } 
   .liste{
     position: relative ;
@@ -137,6 +139,8 @@ function code(){
   }
   
   .texte{
+  pposition :relative;
+
     width: 90vw;
     line-height: 30px;
     margin: 5px auto;
