@@ -75,7 +75,6 @@ verifier.addEventListener('click',()=>{
 
    function htmlCode(){
    let html=`<h2 class="consigne">Clique sur le mot puis sur son synonyme</h2>
-   
    <div class="app-container">
      <div class="col1">  </div>
      <div class="col2">  </div>

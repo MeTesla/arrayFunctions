@@ -95,7 +95,7 @@ mots.forEach(item =>{
     box.style.left= gap[1].offsetLeft +"px"
     box.style.top=  gap[1].offsetTop +"px"
     l('width: ' +box.scrollWidth , gap[1].scrollWidth)
-    
+    gap[1].style.width = box.scrollWidth + 'px'
     //l('gap  rect : ' +gap[1].getBoundingClientRect().y , 'gap offset : ' + gap[1].offsetTop )
     //l('box rect : ' +box.getBoundingClientRect().y , ' box offset : ' + box.offsetTop )
     

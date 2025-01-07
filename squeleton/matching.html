@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="header">
+ <div class="header">
   <div class="status">
     <img src="./img/previous.svg" alt=""> 
     <div class="progress">
@@ -39,9 +39,7 @@
       </div>
       <svg id="svg"></svg>
   </div>
-  <div class="redo">
-    redo
-  </div>
+  <div class="redo"> redo  </div>
   <div class="verifier"> Vérifier </div>
  </div>
  
@@ -106,7 +104,7 @@
       
       index++
      } else if(paths) {paths[index].remove()} else return
-   } 
+   } // fin touchend 
   
   redo.addEventListener('click',()=>{
     
@@ -117,7 +115,6 @@
         let elementId= {from:+svg.lastElementChild.dataset.from,
               to: +svg.lastElementChild.dataset.to
         }
-      
       //, paths[elementId].dataset.from )
       //let a=Array.from[boxes].find(b=>{ return b.id==elementId})
       
@@ -127,18 +124,18 @@
          return
         }
       })
-      
         boxes2.forEach(b => {
           if (b.id == elementId.to) {
             b.removeAttribute('data-has-path')
             return
           }
         })
-      svg.lastElementChild.remove(); index--;
+      svg.lastElementChild.remove(); 
+      index--;
      }
  })
  
- verifier.addEventListener('click',()=>{
+  verifier.addEventListener('click',()=>{
    // data : paths, start.datarep==end.innerText
    svg.childNodes.forEach(path=>{
      if(path.dataset.correct=='correct'){
@@ -202,9 +199,9 @@
     }
     .my-path{
       stroke: rgb(0, 0, 250);
-      stroke-width: 2px;
+      stroke-width: 3px;
       stroke-linecap: round;
-      stroke-dasharray: 5px 5px;
+      stroke-dasharray: 10px 5px;
       stroke: dimgrey;
       fill: transparent; 
     }
