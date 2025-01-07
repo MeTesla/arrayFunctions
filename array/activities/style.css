@@ -5,7 +5,15 @@
   body {
   position: relative;
   }
-  
+  .line{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: red    ;
+    width: 100vw;
+    height: 1px;
+    transition: all 1s ease;
+  }
   .qz-container{
     position: fixed; top:0;
     width: 100vw; height: 100vh;
@@ -90,6 +98,13 @@
   border-bottom: 1px solid ;
 }
 
+.consigne {
+  font-size: 1rem;
+  mmargin: 10px 0 40px;
+  padding: 10px;
+  color: white;
+}
+
 .verifier {
   position: fixed;
   bottom: 40px;
@@ -122,12 +137,7 @@
     to { opacity: 1 }
   }
 
-  .consigne {
-    font-size: 1rem;
-    margin: 10px 0 40px;
-    padding: 10px;
-    color: white;
-  }
+  
   .question {
     height: 100px;width: 90vw;
     border: 1px solid white;

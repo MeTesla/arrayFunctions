@@ -69,7 +69,7 @@ btn.onclick= function(){
    
    
     //for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed))}
-  //  for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
+    //for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
     for(let i=0; i<dataLength; i++){allQst.push(()=>fillGap(container, mainFeed))}
    
     //shuffle :

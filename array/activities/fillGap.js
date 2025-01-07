@@ -7,12 +7,18 @@ export function fillGap(bloc,ind, variable){
   div.innerHTML=code();
   bloc.appendChild(div);
 
+//--------------- LINE 
+const lin=document.createElement('div');
+lin.className="line";
+div.appendChild(lin)
+
   let index = Math.floor(Math.random()*data.length)
   data[index].liste.sort( () => Math.random()-0.5 );
   const header= document.querySelector('.qz-container .header')
   const liste=document.querySelector('.liste');
   const texte=document.querySelector('.texte');
-
+  const line = document.querySelector('.line')
+  
   let motsPos=[];
   let x, y, initPos
   let allowMove=true 
@@ -29,18 +35,15 @@ let txte=data[index].texte
       mot.innerHTML= data[index].liste[i] // pas nécessaire, box est globale.
       liste.appendChild(mot);
 
-      
-
-
-      //GAPS
+    //GAPS
       let spans = `<span class="gap" data-rep=${data[index].liste[i]} id="gap${i}"> </span>`
       let t = txte.replace(data[index].liste[i], spans)
       txte = t;
   }
 
   document.querySelector('.texte').innerHTML=txte
-
   const mots=document.querySelectorAll('.mot');
+
   mots.forEach(mot=>{
     motsPos.push({x:mot.offsetLeft,
                     y:mot.offsetTop
@@ -62,7 +65,6 @@ mots.forEach(item =>{
  function start(ev, box){
    if(!allowMove) return
    let margin = getComputedStyle(box).paddingLeft;
-   
    if(box.dataset.linkedTo) {
      //box.dataset.linkedTo=null
      box.removeAttribute('data-linked-to')
@@ -90,10 +92,16 @@ mots.forEach(item =>{
    let gap = document.elementsFromPoint(ev.changedTouches[0].clientX, ev.changedTouches[0].clientY);  
    
    if(gap[1].classList.contains('gap')){
-    box.style.left= gap[1].getBoundingClientRect().x +"px"
-    box.style.top=  gap[1].offsetTop - 120 +"px"
-    l(document.querySelector('.consigne').offsetTop)
-    l(box.offsetTop )
+    
+    
+    box.style.left= gap[1].getBoundingClientRect().x  +"px"
+    box.style.top=  gap[1].offsetTop +"px"
+    
+    l('gap  rect : ' +gap[1].getBoundingClientRect().y , 'gap offset : ' + gap[1].offsetTop )
+    l('box rect : ' +box.getBoundingClientRect().y , ' box offset : ' + box.offsetTop )
+    l()
+    line.style.top= gap[1].offsetTop +"px"; 
+    
      box.dataset.linkedTo=gap[1].id;
      if(box.innerText==gap[1].dataset.rep){
        box.dataset.correct="true"
@@ -104,7 +112,9 @@ mots.forEach(item =>{
   }
    }
 
-
+    
+    //line.style.height= "10px";
+   
 function code(){
   const html = `<div class="consigne">
       Je glisse les mots de la liste à l'espace correct
