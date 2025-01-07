@@ -88,14 +88,12 @@ mots.forEach(item =>{
    if(!allowMove) return
    box.style.transition="all 0.3s"
    let gap = document.elementsFromPoint(ev.changedTouches[0].clientX, ev.changedTouches[0].clientY);  
-    l( gap[1].getBoundingClientRect().x)
+   
    if(gap[1].classList.contains('gap')){
-    // box.style.position='static'
-    // gap[1].appendChild(box) 
-  //  l(gap[1])
     box.style.left= gap[1].getBoundingClientRect().x +"px"
-    box.style.top=  gap[1].getBoundingClientRect().y+"px"
-     box.style.backgroundColor='red'
+    box.style.top=  gap[1].offsetTop - 120 +"px"
+    l(document.querySelector('.consigne').offsetTop)
+    l(box.offsetTop )
      box.dataset.linkedTo=gap[1].id;
      if(box.innerText==gap[1].dataset.rep){
        box.dataset.correct="true"
@@ -115,9 +113,6 @@ function code(){
     <div class="texte">  </div>
     <div class="verifier">Vérifier</div>
     <style>
-    .fill-gap{
-   
-    } 
   .liste{
     position: relative ;
     width: 90vw;
@@ -139,8 +134,6 @@ function code(){
   }
   
   .texte{
-  pposition :relative;
-
     width: 90vw;
     line-height: 30px;
     margin: 5px auto;
