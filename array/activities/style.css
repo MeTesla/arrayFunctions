@@ -93,16 +93,9 @@
 .consigne {
   padding-bottom: 10px;
   margin-right: auto;
-  color: blueviolet;
+  color: white;
   width: 100%;
   border-bottom: 1px solid ;
-}
-
-.consigne {
-  font-size: 1rem;
-  mmargin: 10px 0 40px;
-  padding: 10px;
-  color: white;
 }
 
 .verifier {

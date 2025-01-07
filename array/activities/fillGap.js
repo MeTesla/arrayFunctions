@@ -92,14 +92,13 @@ mots.forEach(item =>{
    let gap = document.elementsFromPoint(ev.changedTouches[0].clientX, ev.changedTouches[0].clientY);  
    
    if(gap[1].classList.contains('gap')){
-    
-    
-    box.style.left= gap[1].getBoundingClientRect().x  +"px"
+    box.style.left= gap[1].offsetLeft +"px"
     box.style.top=  gap[1].offsetTop +"px"
+    l('width: ' +box.scrollWidth , gap[1].scrollWidth)
     
-    l('gap  rect : ' +gap[1].getBoundingClientRect().y , 'gap offset : ' + gap[1].offsetTop )
-    l('box rect : ' +box.getBoundingClientRect().y , ' box offset : ' + box.offsetTop )
-    l()
+    //l('gap  rect : ' +gap[1].getBoundingClientRect().y , 'gap offset : ' + gap[1].offsetTop )
+    //l('box rect : ' +box.getBoundingClientRect().y , ' box offset : ' + box.offsetTop )
+    
     line.style.top= gap[1].offsetTop +"px"; 
     
      box.dataset.linkedTo=gap[1].id;
@@ -124,7 +123,6 @@ function code(){
     <div class="verifier">Vérifier</div>
     <style>
   .liste{
-    position: relative ;
     width: 90vw;
     min-height: 90px;
     margin: 10px auto;
@@ -161,7 +159,8 @@ function code(){
   .gap{    
     min-width: 80px;
     margin-bottom: -8px;
-    border: 1px solid white;
+    border-bottom: 1px solid white;
+    border-radius: 0;
   }
 </style>`
   
