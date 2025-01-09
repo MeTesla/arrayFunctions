@@ -7,6 +7,11 @@
 import {matchMots, matchLength} from '../data/data.js'
 const l=console.log;
 
+// Une manière de shuffle 2 arrays
+// mot et syn unique
+const mots = Array.from(document.querySelectorAll('.mot'));
+const syns = [...document.querySelectorAll('.syn')];
+
 // ---------- APPARAIEMENT  ------------
 export function match(bloc, variable){
    let div=document.createElement('div');
@@ -32,10 +37,7 @@ export function match(bloc, variable){
    right.appendChild(syn);
  }
 
-// Une manière de shuffle 2 arrays
-// mot et syn unique
-const mots=Array.from(document.querySelectorAll('.mot'));
-const syns=[...document.querySelectorAll('.syn')];
+
 
 mots.sort(()=>Math.random() - 0.5);
 let motTemps, synTemps=''
@@ -55,11 +57,12 @@ let motTemps, synTemps=''
     let svg=document.querySelector('#svg');
     let index =0
     let path, paths,xFrom, yFrom,start,end
-
+  const headerH = document.querySelector('.header').scrollHeight
+  
   rows.ontouchstart=(e)=>{
     let t=e.touches[0]
     xFrom=e.target.getBoundingClientRect().right + 7- rows.offsetLeft;
-    yFrom=e.target.getBoundingClientRect().top + (e.target.getBoundingClientRect().height /2 ) - rows.offsetTop;
+    yFrom=e.target.getBoundingClientRect().top - headerH + (e.target.getBoundingClientRect().height /2 ) - rows.offsetTop;
     start=e.target
     l(start.offsetTop, start.getBoundingClientRect().y)
     svg.innerHTML+=`<path id=${index} class="my-path"> </path>`
@@ -69,7 +72,7 @@ let motTemps, synTemps=''
       let t=e.touches[0]
       if (start.className !== 'box' 
          || start.dataset.hasPath) return
-      paths[index].setAttribute('d',`M${xFrom} ${yFrom} L${t.clientX-rows.offsetLeft} ${t.clientY-rows.offsetTop }`)
+      paths[index].setAttribute('d',`M${xFrom} ${yFrom} L${t.clientX-rows.offsetLeft} ${t.clientY-rows.offsetTop -headerH}`)
     }//fin touchmove
   }//fin touchStar
   
@@ -81,7 +84,7 @@ let motTemps, synTemps=''
         && (!end.dataset.hasPath)) {
       
       let x =end.getBoundingClientRect().left - 4 - rows.offsetLeft 
-      let y = end.getBoundingClientRect().top+ end.scrollHeight /2 - rows.offsetTop
+      let y = end.getBoundingClientRect().top+ end.scrollHeight /2 - rows.offsetTop - headerH
       
       if(start.dataset.hasPath !== 'true') {
         paths[index].setAttribute('d',`M${xFrom} ${yFrom} L${x} ${y}`)
@@ -165,7 +168,7 @@ let motTemps, synTemps=''
     height: 50px;
     line-height: 50px;
     margin-bottom: 10px;
-    background-color: darkslategray;
+    background-color: #1565C0;
     color: white;
     text-align: center;
     color: white;
