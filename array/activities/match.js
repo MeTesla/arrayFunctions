@@ -139,6 +139,10 @@ let motTemps, synTemps=''
        path.style.stroke="red"
      }
    })
+  const feed=document.querySelector('.feed');
+    //const feedMsg=feed.querySelector('.msg')
+  feed.style.bottom='0px';
+
  })
 
    function htmlCode(){
@@ -204,7 +208,8 @@ let motTemps, synTemps=''
   
   .redo{
     width:50px; height: 50px;
-    border: 2px solid gray;
+    border: 2px solid white;
+    color: white;
     border-radius: 50%;
     text-align: center;
     line-height: 48px;

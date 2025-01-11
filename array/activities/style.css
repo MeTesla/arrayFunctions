@@ -15,17 +15,15 @@
     transition: all 1s ease;
   }
   .qz-container{
-    position: fixed; top:0;
+    position: fixed; top: 0;
     width: 100vw; height: 100vh;
     background-color: #0091EA
   }
 
  .header {
-    ppadding: 10px 0 0;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border-bottom: 1px solid;
   }
 
   .hm{
@@ -81,7 +79,7 @@
   }
 
   .container{
-    position : absolute ;
+    position : relative ;
     height: 80vh;
     display: flex; 
     justify-content: space-around; 
@@ -92,7 +90,7 @@
 
 .consigne {
   padding-bottom: 10px;
-  margin-right: auto;
+  margin: 15px auto 15px 10px;
   color: white;
   width: 100%;
   border-bottom: 1px solid ;
@@ -115,11 +113,7 @@
 }
 
 /*------------------------MAIN -------------------------*/
-  .container {
-    flex: 1;
-    bbackground-color: rgb(122, 122, 252);;
-    position: relative;
-  }
+  
   .qcm, .vf, .ordre-p, .match {
     position: absolute;
     height: 100% ;width: 100% ;

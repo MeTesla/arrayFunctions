@@ -98,15 +98,48 @@ export const phrasesLength=phrases.length;
 
 
 export const matchMots = [
-   {mot: "Chat", syn:"Miaule"},
-   {mot: "Cheval", syn:"Hénit"},
-   {mot: "Poule", syn:"Glousse"},
-   {mot: "Grenouille", syn:"croisse"},
-   {mot: "Moteur", syn:"Vrombit"},
-   {mot: "Oiseau", syn:"Chante"},
-   {mot: "Chien", syn:"Aboit"},
-   {mot: "Vache", syn:"Meugle"},
-]
+    { mot: 'aller', syn: 'partir' },
+    { mot: 'grand', syn: 'élevé' },
+    { mot: 'heureux', syn: 'joyeux' },
+    { mot: 'petit', syn: 'minuscule' },
+    { mot: 'bon', syn: 'excellent' },
+    { mot: 'mauvais', syn: 'méchant' },
+    { mot: 'fort', syn: 'puissant' },
+    { mot: 'faible', syn: 'fragile' },
+    { mot: 'nouveau', syn: 'frais' },
+    { mot: 'vieux', syn: 'ancien' },
+  { mot: 'beau', syn: 'joli' },
+  { mot: 'rapide', syn: 'vite' },
+  { mot: 'lent', syn: 'paisible' },
+  { mot: 'simple', syn: 'facile' },
+  { mot: 'difficile', syn: 'compliqué' },
+  { mot: 'chaud', syn: 'brûlant' },
+  { mot: 'froid', syn: 'glacial' },
+  { mot: 'clair', syn: 'lumineux' },
+  { mot: 'sombre', syn: 'obscur' },
+  { mot: 'riche', syn: 'fortuné' },
+  { mot: 'pauvre', syn: 'modeste' },
+  { mot: 'heure', syn: 'moment' },
+  { mot: 'jour', syn: 'journée' },
+  { mot: 'nuit', syn: 'obscurité' },
+  { mot: 'aimer', syn: 'adorer' },
+  { mot: 'détester', syn: 'haïr' },
+  { mot: 'grandir', syn: 'croître' },
+  { mot: 'penser', syn: 'réfléchir' },
+  { mot: 'voir', syn: 'observer' },
+  { mot: 'parler', syn: 'discourir' },
+  { mot: 'écrire', syn: 'composer' },
+  { mot: 'manger', syn: 'déguster' },
+  { mot: 'courir', syn: 'galoper' },
+  { mot: 'marcher', syn: 'se promener' },
+  { mot: 'rire', syn: 'sourire' },
+  { mot: 'pleurer', syn: 'sangloter' },
+  { mot: 'travailler', syn: 'œuvrer' },
+  { mot: 'étudier', syn: 'apprendre' },
+  { mot: 'jouer', syn: 's’amuser' },
+  { mot: 'dormir', syn: 'somnoler' }
+];
+
 export const matchLength = matchMots.length;
 
 

@@ -53,7 +53,6 @@ btn.onclick= function(){
    prev.onclick = ()=> div.remove()
   }  
 
-
  function createQuiz(){
    //Variables 
     const container = document.querySelector('.container')
@@ -64,10 +63,8 @@ btn.onclick= function(){
     let mainFeed='a'
     
     // Create array of All activities 
-    //for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed))}
-   // for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
-   
-   
+    for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed))}
+    for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
     //for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed))}
     for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
     //for(let i=0; i<dataLength; i++){allQst.push(()=>fillGap(container, mainFeed))}
