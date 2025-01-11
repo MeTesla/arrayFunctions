@@ -35,7 +35,7 @@ import {vf} from './vf.js';
 import {qcm} from './qcm.js';
 import {match} from './match.js'
 import {fillGap} from './fillGap.js'
-//import { ordreP } from './ordreP.js';
+import { ordreEvents } from './ordreEvents.js';
 
 
 
@@ -66,9 +66,9 @@ btn.onclick= function(){
     //for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed))}
     //for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
     //for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed))}
-    for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
+    //for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
     //for(let i=0; i<dataLength; i++){allQst.push(()=>fillGap(container, mainFeed))}
-   
+    allQst.push(()=>ordreEvents(container, mainFeed))
     //shuffle :
     allQst.sort( ()=>{return Math.random() - 0.5 })
     
