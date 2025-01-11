@@ -86,7 +86,7 @@ mots.forEach(item =>{
  }
  
  function end(ev, box){
-   
+  
    if(!allowMove) return
    box.style.transition="all 0.3s"
    let gap = document.elementsFromPoint(ev.changedTouches[0].clientX, ev.changedTouches[0].clientY);  
@@ -111,8 +111,40 @@ mots.forEach(item =>{
   }
    }
 
-    
-    //line.style.height= "10px";
+//Verifier
+const verifier = document.querySelector('.verifier');
+verifier.addEventListener('click', () => {
+  const mots=document.querySelectorAll('.mot');
+  const feed = document.querySelector('.feed');
+  const feedMsg = feed.querySelector('.msg')
+  feed.style.bottom = '0px';
+/*
+  if (reponse == qcmQuestions[ind].rep) {
+    variable = `C'est correct !`;
+    feedMsg.innerHTML = variable
+    //score++
+  } else {
+    variable = 'Dommage !!!';
+    feedMsg.innerHTML = variable;
+    // Array false
+  }
+*/  
+    allowMove=false
+  mots.forEach(mot=>{
+    if(!mot.dataset.linkedTo) { }
+    if (mot.dataset.correct=='true'){
+      l(mot.dataset.linkedTo)
+      mot.style.backgroundColor="rgb(183, 255, 116)"
+    } else{
+      mot.style.backgroundColor="#ff8888"
+    }
+
+      mot.removeEventListener('touchstart', start)
+      mot.removeEventListener('touchmove', moveMe)
+      mot.removeEventListener('touchend', end)
+  })
+
+})
    
 function code(){
   const html = `<div class="consigne">

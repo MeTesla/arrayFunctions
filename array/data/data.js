@@ -211,3 +211,9 @@ export const data=[
 ]
 
 export const dataLength = data.length;
+
+export const orderPhraseData = [
+ 'Les trois se rendent à Sidi El Arafi.',
+ 'La mère décide de retenir l’enfant à la maison.',
+ 'La visite de Lalla Aicha.',
+ 'Mly Laarbi se fait escroqué par son apprenti Abdelkader']

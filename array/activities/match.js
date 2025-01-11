@@ -31,7 +31,7 @@ export function match(bloc, variable){
    syn.className='box2'; syn.id= i + 4
    mot.innerHTML=matchMots[alea].mot;
    syn.innerHTML=matchMots[alea].syn;   
-   mot.dataset.rep=matchMots[alea].mot; 
+   mot.dataset.rep=matchMots[alea].syn; 
 
    left.appendChild(mot);
    right.appendChild(syn);
@@ -92,7 +92,7 @@ let motTemps, synTemps=''
         paths[index].setAttribute('data-to', end.id)
         l(start.dataset.rep, end.innerText)
         if(start.dataset.rep == end.innerText){
-        paths[index].setAttribute('data-correct', 'correct')
+          paths[index].setAttribute('data-correct', 'correct')
         }
       }
       end.dataset.hasPath='true'
@@ -131,7 +131,10 @@ let motTemps, synTemps=''
  })
  
   verifier.addEventListener('click',()=>{
-   // data : paths, start.datarep==end.innerText
+   if(paths.length != 4) {
+     alert('Il manque des paths')
+     return
+   }
    svg.childNodes.forEach(path=>{
      if(path.dataset.correct=='correct'){
        path.style.stroke="green"
@@ -139,9 +142,9 @@ let motTemps, synTemps=''
        path.style.stroke="red"
      }
    })
-  const feed=document.querySelector('.feed');
+    const feed=document.querySelector('.feed');
     //const feedMsg=feed.querySelector('.msg')
-  feed.style.bottom='0px';
+    feed.style.bottom='0px';
 
  })
 
