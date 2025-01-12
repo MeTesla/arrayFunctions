@@ -132,8 +132,7 @@ let motTemps, synTemps=''
  
   verifier.addEventListener('click',()=>{
    if(paths.length != 4) {
-     alert('Il manque des paths')
-     return
+     //alert('Il manque des paths')
    }
    svg.childNodes.forEach(path=>{
      if(path.dataset.correct=='correct'){
