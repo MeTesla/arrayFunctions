@@ -212,9 +212,27 @@ export const data=[
 
 export const dataLength = data.length;
 
-export const orderPhraseData = [
- 'Les trois se rendent à Sidi El Arafi.',
- 'La mère décide de retenir l’enfant à la maison.',
- 'La visite de Lalla Aicha.',
- 'Mly Laarbi se fait escroqué par son apprenti Abdelkader'
- ]
+export const orderPhraseData = [`Le narrateur décrit dar chouafa et ses locataires`,
+`Sidi Mohammed n'aime pas le bain maure`,
+`Lalla Zoubida se dispute avec Rahma`,
+`Les deux femmes vont à Sidi Ali Boughaleb`,
+`Le Narrateur se fait griffer par un chat`,
+`Fatma Bziouya a acheté une lampe à pétrole`,
+`Maâlem Abdeslam a acheté une lampe à pétrole`,
+`Zineb accompagnait sa mère à un baptême`,
+`Rahma a organisé un repas pour les mendiants`,
+`Moulay Larbi a perdu son atelier à cause de Abdelkader`,
+`Lalla Aïcha vend ses bijoux pour aider son mari`,
+`Sidi Mohammed est nommé chef des frotteurs`,
+`Sidi Mohammed Achète des habits neuf de la Kissaria`,
+`Maâlem Abdeslam se dispute avec un courtier`,
+`Le courtier voulait voler l'argent de Maâlem Abdeslam`,
+`Lalla Zoubida ne veut plus les bracelets`,
+`Moulay Larbi se marie à une autre femme`,
+`Lalla Aïcha pleurait car son mari l'a trahie`,
+`Maâlem Abdeslam perd son capital`,
+`Maâlem Abdeslam décide de travailler comme moissonneur`,
+`Maâlem Abdeslam voyage aux environs de Fès`,
+`Le Narrateur, sa mère et Lalla Aicha vont chez Sidi El Arafi`,
+`Sidi Mohammed a aimé Sidi El Arafi`,
+`Lalla Zoubida est une femme bavarde`]

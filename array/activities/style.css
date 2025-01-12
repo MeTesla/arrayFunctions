@@ -289,16 +289,16 @@
 
 .drag-drop{
   flex-basis: 80%;
+  width: 95%;
+  margin: auto;
 }
 
 .drag, .drop{
-  min-height: 35vh;
-  border: 1px solid;
+  min-height: 30vh;
+  border: 1px solid white;
+  font-size: 0.8rem;
+  font-weight: bold;
   border-radius: 10px;
-}
-
-.drag {
-  border: 1px solid gray;
 }
 
 .drop{

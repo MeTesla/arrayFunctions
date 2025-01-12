@@ -62,17 +62,19 @@ verifier.addEventListener('click',()=>{
   */
 })
  function htmlCode(){
- let html=`<h2 class="consigne">Mets en ordre la phrase suivante</h2><div class="q-content">
+ let html=`<h2 class="consigne">Mets en ordre la phrase suivante</h2>
+ <div class="q-content">
   <div class="recepteur"></div>
   <div class="emetteur"></div>
-</div>
+ </div>
 
-<div class="footer flx">
-  <div class="verifier flx">Verifier</div>
-</div>
+  <div class="footer flx">
+    <div class="verifier flx">Verifier</div>
+  </div>
 <style>
 
 </style>`
  return html
 } 
 }
+
