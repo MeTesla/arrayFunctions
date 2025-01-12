@@ -29,13 +29,14 @@ qcm.js
 */
 
 // Les chemins sont RELATIFS à main.js
-import {qcmLength, phrasesLength, phrases, vfQuestions, vfLength, matchMots, matchLength, dataLength } from '../data/data.js'
+import {qcmLength, ordrePhrasesData, vfQuestions, vfLength, matchMots, matchLength, dataLength } from '../data/data.js'
 
 import {vf} from './vf.js';
 import {qcm} from './qcm.js';
 import {match} from './match.js'
 import {fillGap} from './fillGap.js'
 import { ordreEvents } from './ordreEvents.js';
+import { ordrePhrases } from './ordrePhrases.js';
 
 
 
@@ -68,7 +69,10 @@ btn.onclick= function(){
     //for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed))}
     //for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
     //for(let i=0; i<dataLength; i++){allQst.push(()=>fillGap(container, mainFeed))}
-    allQst.push(()=>ordreEvents(container, mainFeed))
+    for(let i=0; i<ordrePhrasesData.length; i++){allQst.push(()=>ordrePhrases(container, mainFeed))}
+    //allQst.push(()=>ordreEvents(container, mainFeed))
+    //allQst.push(()=>ordrePhrases(container, mainFeed))
+    
     //shuffle :
     allQst.sort( ()=>{return Math.random() - 0.5 })
     

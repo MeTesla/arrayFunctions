@@ -26,7 +26,6 @@ lesChoix.forEach(choix=> {
   for(let choice of lesChoix) choice.classList.remove('selected');
   choix.classList.add('selected');
   reponse = choix.innerHTML;
-  
  })
 }) 
 //Verifier
