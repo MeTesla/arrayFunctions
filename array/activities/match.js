@@ -22,7 +22,7 @@ export function match(bloc, variable){
  let right=document.querySelector('.right')
  let left=document.querySelector('.left')
  
-      // créer les divs
+ // créer les divs
  for(let i=0; i<4; i++){
    let alea=Math.floor(Math.random()*matchLength);
    const mot=document.createElement('div');
@@ -64,7 +64,7 @@ let motTemps, synTemps=''
     xFrom=e.target.getBoundingClientRect().right + 7- rows.offsetLeft;
     yFrom=e.target.getBoundingClientRect().top - headerH + (e.target.getBoundingClientRect().height /2 ) - rows.offsetTop;
     start=e.target
-    l(start.offsetTop, start.getBoundingClientRect().y)
+  
     svg.innerHTML+=`<path id=${index} class="my-path"> </path>`
     
     rows.ontouchmove=(e)=>{
@@ -90,7 +90,7 @@ let motTemps, synTemps=''
         paths[index].setAttribute('d',`M${xFrom} ${yFrom} L${x} ${y}`)
         paths[index].setAttribute('data-from', start.id)
         paths[index].setAttribute('data-to', end.id)
-        l(start.dataset.rep, end.innerText)
+        
         if(start.dataset.rep == end.innerText){
           paths[index].setAttribute('data-correct', 'correct')
         }
@@ -131,9 +131,6 @@ let motTemps, synTemps=''
  })
  
   verifier.addEventListener('click',()=>{
-   if(paths.length != 4) {
-     //alert('Il manque des paths')
-   }
    svg.childNodes.forEach(path=>{
      if(path.dataset.correct=='correct'){
        path.style.stroke="green"
@@ -156,7 +153,7 @@ let motTemps, synTemps=''
       <div class="right"> </div>
       <svg id="svg"></svg>
   </div>
-  <div class="redo"> redo  </div>
+  <div class="redo"> <img class='redo' src='./activities/img/redo.svg'>  </div>
   <div class="verifier"> Vérifier </div>
  </div>
   <style>
@@ -210,12 +207,9 @@ let motTemps, synTemps=''
   
   .redo{
     width:50px; height: 50px;
-    border: 2px solid white;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 48px;
   }
+  .redo img{
+  width: 80%; height:80%; border: none}
   </style>`
       return html
    }
