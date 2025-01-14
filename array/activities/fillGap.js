@@ -1,7 +1,6 @@
-import {data, dataLength} from '../data/data.js'
 const l=console.log
 
-export function fillGap(bloc,ind, variable){
+export function fillGap(bloc, variable, data){
   const div=document.createElement('div');
   div.classList.add('fill-gap');   
   div.innerHTML=code();
@@ -12,7 +11,7 @@ const lin=document.createElement('div');
 lin.className="line";
 div.appendChild(lin)
 
-  let index = Math.floor(Math.random()*data.length)
+  let index = Math.floor(Math.random()* data.length)
   data[index].liste.sort( () => Math.random()-0.5 );
   const header= document.querySelector('.qz-container .header')
   const liste=document.querySelector('.liste');
@@ -94,7 +93,7 @@ mots.forEach(item =>{
    if(gap[1].classList.contains('gap')){
     box.style.left= gap[1].offsetLeft +"px"
     box.style.top=  gap[1].offsetTop +"px"
-    l('width: ' +box.scrollWidth , gap[1].scrollWidth)
+    
     gap[1].style.width = box.scrollWidth + 'px'
     //l('gap  rect : ' +gap[1].getBoundingClientRect().y , 'gap offset : ' + gap[1].offsetTop )
     //l('box rect : ' +box.getBoundingClientRect().y , ' box offset : ' + box.offsetTop )
@@ -132,8 +131,7 @@ verifier.addEventListener('click', () => {
     allowMove=false
   mots.forEach(mot=>{
     if(!mot.dataset.linkedTo) { }
-    if (mot.dataset.correct=='true'){
-      l(mot.dataset.linkedTo)
+    if (mot.dataset.correct=='true'){     
       mot.style.backgroundColor="rgb(183, 255, 116)"
     } else{
       mot.style.backgroundColor="#ff8888"

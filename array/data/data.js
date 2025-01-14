@@ -69,16 +69,16 @@ export const vfQuestions = [
 export const vfLength=vfQuestions.length;
 
 export const matchMots = [
-    { mot: 'aller', syn: 'partir' },
-    { mot: 'grand', syn: 'élevé' },
-    { mot: 'heureux', syn: 'joyeux' },
-    { mot: 'petit', syn: 'minuscule' },
-    { mot: 'bon', syn: 'excellent' },
-    { mot: 'mauvais', syn: 'méchant' },
-    { mot: 'fort', syn: 'puissant' },
-    { mot: 'faible', syn: 'fragile' },
-    { mot: 'nouveau', syn: 'frais' },
-    { mot: 'vieux', syn: 'ancien' },
+  { mot: 'aller', syn: 'partir' },
+  { mot: 'grand', syn: 'élevé' },
+  { mot: 'heureux', syn: 'joyeux' },
+  { mot: 'petit', syn: 'minuscule' },
+  { mot: 'bon', syn: 'excellent' },
+  { mot: 'mauvais', syn: 'méchant' },
+  { mot: 'fort', syn: 'puissant' },
+  { mot: 'faible', syn: 'fragile' },
+  { mot: 'nouveau', syn: 'frais' },
+  { mot: 'vieux', syn: 'ancien' },
   { mot: 'beau', syn: 'joli' },
   { mot: 'rapide', syn: 'vite' },
   { mot: 'lent', syn: 'paisible' },
@@ -113,7 +113,7 @@ export const matchMots = [
 
 export const matchLength = matchMots.length;
 
-export const data=[
+export const fillGapData=[
 {
 'texte': `La Boîte à merveilles est un roman autobiographique écrit par Ahmed Essafrioui en 1942. Il raconte l'histoire d'un enfant âgé de six ans qui se nomme Sidi Mohammed qui souffre de la solitude son seul ami était sa boîte à merveilles.`,
 'liste': ['merveilles','autobiographique', 'Ahmed', 'six', 'Mohammed', 'boîte']
@@ -180,7 +180,6 @@ export const data=[
 },
 ]
 
-export const dataLength = data.length;
 
 export const ordrePhrasesData = [`Le narrateur décrit dar chouafa et ses locataires`,
 `Sidi Mohammed n'aime pas le bain maure`,
@@ -205,4 +204,48 @@ export const ordrePhrasesData = [`Le narrateur décrit dar chouafa et ses locata
 `Maâlem Abdeslam voyage aux environs de Fès`,
 `Le Narrateur, sa mère et Lalla Aicha vont chez Sidi El Arafi`,
 `Sidi Mohammed a aimé Sidi El Arafi`,
-`Lalla Zoubida est une femme bavarde`]
+`Lalla Zoubida est une femme bavarde`
+]
+
+export const ordreEventsData =[
+  ['La description de « DAR CHOUAFA » et ses locataires.', 
+   'Une séance au Bain maure.',
+   'La dispute de RAHMA avec Lalla Zoubida.'
+   ],
+   ['La visite de Lalla Aicha.',
+     'Aïcha et Zoubida se rendent avec sidi Mohamed à Sidi Ali Boughaleb.',
+     'Le Narrateur se fait griffer par un chat',
+     'Sidi Mohamed tombe malade.'
+   ],
+   ['Fatma Bziouya  achète une lampe à pétrole.',    
+     'La disparition de Zineb.',
+     'Rahma organise un repas pour les mendiants aveugles.'
+    ],
+   ['Quinze jours avant Achoura',
+     'Lalla Aïcha aide son mari en vendant ses bijoux.',
+     'La mort du coiffeur Sidi Mohamed Ben Tahar.'
+   ],
+   [
+    'Nettoyage du Msid et fierté du Narrateur nommé «chef des frotteurs».',
+    'L’achat des habits neufs de la « kissarya ».',
+    'L’histoire de l’oncle Othman marié à une très jeune fille.'
+   ],
+   ['Deux jours avant Achoura et les préparatifs commencent.',
+    'Le réveil tôt du garçon, coupe de cheveux et la douche nocturne.',
+    'Rites : psalmodie au Msid.',
+    'La visite de Lalla Aicha.'
+    ],
+    ['Querelle du père avec un courtier au souk des bijoux.',
+    'Cris et pleures après que le mari de Lalla Aicha épouse une seconde femme.',
+    'Le Narrateur tombe malade.'
+    ],
+    ['Le père a perdu son maigre capital, sa résolution de partir travailler comme moissonneur.',
+    'Conséquence : détérioration, solitude, visite des sanctuaires.',
+    'La visite de Lalla Aicha.'
+    ],
+    ['Le Narrateur, sa mère, Lalla Aicha vont chez Sidi El Arafi.',
+    'La mère décide de retenir l’enfant à la maison.',
+    'La visite d’un messager de la part du père.',
+    'La visite de Lalla Aicha '
+    ]
+ ]

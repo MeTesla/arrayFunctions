@@ -1,7 +1,6 @@
-import { qcmLength, qcmQuestions } from "../data/data.js";
+const l=console.log
 
-export function qcm(bloc,ind, variable){
-    const l=console.log
+export function qcm(bloc,ind, variable, data){    
     const div=document.createElement('div');
     div.classList.add('qcm');   
     div.innerHTML=code();
@@ -13,11 +12,11 @@ export function qcm(bloc,ind, variable){
     const c3=document.querySelector('.c3');
     let reponse='';
 
-// DOM    
-  question.innerHTML=qcmQuestions[ind].question;
-  c1.innerHTML=qcmQuestions[ind].c1;
-  c2.innerHTML=qcmQuestions[ind].c2;
-  c3.innerHTML=qcmQuestions[ind].c3;
+// DOM  UI
+  question.innerHTML=data[ind].question;
+  c1.innerHTML=data[ind].c1;
+  c2.innerHTML=data[ind].c2;
+  c3.innerHTML=data[ind].c3;
  
 // SELECTION
 const lesChoix= document.querySelectorAll('.choix');
@@ -35,7 +34,7 @@ verifier.addEventListener('click',()=>{
   const feedMsg=feed.querySelector('.msg')
   feed.style.bottom='0px';
 
-  if(reponse==qcmQuestions[ind].rep){
+  if(reponse==data[ind].rep){
    variable=`C'est correct !`;
    feedMsg.innerHTML = variable
      //score++
@@ -44,7 +43,9 @@ verifier.addEventListener('click',()=>{
    feedMsg.innerHTML = variable;
    // Array false
   }
-}) 
+})
+
+// HTML
  function code(){     
   const html=`
   <div class="qcm-container">

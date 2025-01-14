@@ -1,5 +1,4 @@
-//import { vfLength, vfQuestions } from "../data/data.js";
-//V2 : mettre lien vers data dans  
+
 export function vf(bloc, ind, variable, data){
     const l=console.log;
     const div=document.createElement('div');
@@ -13,8 +12,7 @@ export function vf(bloc, ind, variable, data){
   let reponse =''
 
 // DOM    
-  //question.innerHTML=vfQuestions[ind].question;
-  //v2
+ 
   question.innerHTML=data[ind].question;
  
 // SELECTION
@@ -33,8 +31,6 @@ verifier.addEventListener('click',()=>{
     const feed=document.querySelector('.feed');
     const feedMsg=feed.querySelector('.msg')
     feed.style.bottom='0px';
-    //if(reponse == vfQuestions[ind].rep){
-    //v2
     if(reponse == data[ind].rep){
      variable= 'vf correct';
      feedMsg.innerText=variable;
@@ -60,13 +56,3 @@ function code(){
     }
     
 }
-
-/*export function arrayOfVf(){
-    let arr=[];
-    for(let i=0; i<vfQuestions.length; i++){
-        arr.push(vf(i))
-    }
-    
-    return arr
-}
-*/

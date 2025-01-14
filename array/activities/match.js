@@ -4,16 +4,16 @@
 //import {confetti} from '../../assets/confetti.js'
 //import {popupFermer} from '../fermer/fermer.js'
  
-import {matchMots, matchLength} from '../data/data.js'
 const l=console.log;
 
 // Une manière de shuffle 2 arrays
 // mot et syn unique
 const mots = Array.from(document.querySelectorAll('.mot'));
 const syns = [...document.querySelectorAll('.syn')];
+//mots.sort(()=>Math.random() - 0.5);
 
 // ---------- APPARAIEMENT  ------------
-export function match(bloc, variable){
+export function match(bloc, variable, data){
    let div=document.createElement('div');
    div.className='match';
    div.innerHTML = htmlCode();  
@@ -24,23 +24,20 @@ export function match(bloc, variable){
  
  // créer les divs
  for(let i=0; i<4; i++){
-   let alea=Math.floor(Math.random()*matchLength);
+   let alea=Math.floor(Math.random()*data.length);
    const mot=document.createElement('div');
    const syn=document.createElement('div');
    mot.className='box'; mot.id=i;
    syn.className='box2'; syn.id= i + 4
-   mot.innerHTML=matchMots[alea].mot;
-   syn.innerHTML=matchMots[alea].syn;   
-   mot.dataset.rep=matchMots[alea].syn; 
+   mot.innerHTML=data[alea].mot;
+   syn.innerHTML=data[alea].syn;   
+   mot.dataset.rep=data[alea].syn; 
 
    left.appendChild(mot);
    right.appendChild(syn);
  }
 
 
-
-mots.sort(()=>Math.random() - 0.5);
-let motTemps, synTemps=''
 
 // prendre 4 mots 4 syn de data
 // créer 4 divs mots - 4 divs syns ==> +innerHTML
@@ -57,7 +54,7 @@ let motTemps, synTemps=''
     let svg=document.querySelector('#svg');
     let index =0
     let path, paths,xFrom, yFrom,start,end
-  const headerH = document.querySelector('.header').scrollHeight
+    const headerH = document.querySelector('.header').scrollHeight
   
   rows.ontouchstart=(e)=>{
     let t=e.touches[0]
@@ -144,7 +141,7 @@ let motTemps, synTemps=''
 
  })
 
-   function htmlCode(){
+function htmlCode(){
    let html=` <div class="container">
   <div class="consigne"> Je relie le mot à son synonyme   </div>
  
@@ -153,7 +150,7 @@ let motTemps, synTemps=''
       <div class="right"> </div>
       <svg id="svg"></svg>
   </div>
-  <div class="redo"> <img class='redo' src='./activities/img/redo.svg'>  </div>
+  <div class="redo"> <img class='redo' src='./activities/img/redo.svg' alt="Redo">  </div>
   <div class="verifier"> Vérifier </div>
  </div>
   <style>
@@ -206,7 +203,7 @@ let motTemps, synTemps=''
     }
   
   .redo{
-    width:50px; height: 50px;
+    width:30px; height: 30px;
   }
   .redo img{
   width: 80%; height:80%; border: none}
@@ -214,7 +211,3 @@ let motTemps, synTemps=''
       return html
    }
 }
-
-/*
-   
-*/

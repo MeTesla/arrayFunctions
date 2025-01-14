@@ -1,8 +1,8 @@
-//import DATA
-//import {orderPhraseData} from '../data/data.js';
+// verifier probleme
+
 const l = console.log
 
-export function ordreEvents(bloc, ind, variable) {
+export function ordreEvents(bloc, variable,data) {
   const div = document.createElement('div');
   div.classList.add('qcm');
   div.innerHTML = code();
@@ -12,21 +12,18 @@ export function ordreEvents(bloc, ind, variable) {
   const container =document.querySelector('.container');
   let drag = document.querySelector('.drag')
   let drop = document.querySelector('.drop')
-  let ol= document.querySelector('.ol')
   let verifier = document.querySelector('.verifier')
 
-const initData =[
- 'Les trois se rendent à Sidi El Arafi.',
- 'La mère décide de retenir l’enfant à la maison.',
- 'La visite de Lalla Aicha.',
- 'Mly Laarbi se fait escroqué par son apprenti Abdelkader']
+ let alea = Math.floor(Math.random() * data.length)
+ let oneChapEvents = data[alea]
+ let initOneChapEvents = oneChapEvents
  
- let data = [...initData].sort(function(a,b){return 0.5 - Math.random()})
+ oneChapEvents = [...oneChapEvents].sort(function(a,b){return 0.5 - Math.random()})
 
-for (let i=0; i<data.length; i++){
+for (let i=0; i<oneChapEvents.length; i++){
     const div = document.createElement('div')
     div.setAttribute('class','phrase')
-    div.innerHTML=data[i]
+    div.innerHTML=oneChapEvents[i]
     drag.appendChild(div)
     div.addEventListener('click', (ev)=>{
      if(div.parentElement == drag){
@@ -43,6 +40,24 @@ for (let i=0; i<data.length; i++){
   //drop.style.height = drag.getBoundingClientRect().height + 'px'
   drop.innerHTML=null
 
+  // boutton verifier
+verifier.addEventListener('click', ()=>{
+  const dropedPhrases=[]
+  for (let i=0; i<drop.childNodes.length;i++){
+      dropedPhrases.push(drop.childNodes[i].innerHTML)
+  }
+  const feed=document.querySelector('.feed');
+  const feedMsg=feed.querySelector('.msg')
+  feed.style.bottom='0px';
+
+  if (dropedPhrases.toString()==initOneChapEvents.toString()){
+    variable='C\'est correct';
+    feedMsg.innerHTML = variable
+  } else{
+    variable='C\'est incorrect';
+    feedMsg.innerHTML = variable
+  }
+})
   
   function code(){
     const html=`<div class="consigne">Je mets en ordre les évènements du chapitre.</div>

@@ -1,4 +1,6 @@
 const l=console.log;
+// PROBLEME : la référence à l'image se fait par rapport à la page HTML. en cas de plusieurs appels il y aura problème de LIEN 
+
 /*
   1- STYLE commun pour tous les appels
      Où placer le fichier CSS.
@@ -6,17 +8,6 @@ const l=console.log;
        document.adoptedStyleSheets = [sheef]
   2- ONE question quiz function : 
       Solution: la boucle de création : i < 1 : ce qui limite les questions en une SEUL
-*/
-
-/*
-1- Add a question type 
-2- Continue with one ITEM logic
-  a-
-3- UI design of All Items
-  - progress bar
-  - Score
-  - Ecran de fin + nouvelle session
-  - Tableau des réponses
 */
  
 /* 
@@ -29,7 +20,7 @@ qcm.js
 */
 
 // Les chemins sont RELATIFS à main.js
-import {qcmLength, ordrePhrasesData, vfQuestions, vfLength, matchMots, matchLength, dataLength } from '../data/data.js'
+import {qcmQuestions, qcmLength, ordrePhrasesData, vfQuestions, vfLength, matchMots, matchLength,ordreEventsData, fillGapData } from '../data/data.js'
 
 import {vf} from './vf.js';
 import {qcm} from './qcm.js';
@@ -64,14 +55,12 @@ btn.onclick= function(){
     let mainFeed='a'
     
     // Create array of All activities 
-    for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed))}
-    for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
-    //for(let i=0; i<phrasesLength; i++){allQst.push(()=>ordreP(container, i,mainFeed))}
-    for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
-    for(let i=0; i<dataLength; i++){allQst.push(()=>fillGap(container, mainFeed))}
-    for(let i=0; i<ordrePhrasesData.length; i++){allQst.push(()=>ordrePhrases(container, mainFeed))}
-    //allQst.push(()=>ordreEvents(container, mainFeed))
-    //allQst.push(()=>ordrePhrases(container, mainFeed))
+    // for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed, qcmQuestions))}
+    // for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
+    // for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed, matchMots))}
+    // for(let i=0; i<fillGapData.length; i++){allQst.push(()=>fillGap(container, mainFeed, fillGapData))}
+    for(let i =0; i<ordreEventsData.length;i++) allQst.push(()=>ordreEvents(container, mainFeed, ordreEventsData))
+    // for(let i = 0; i< ordrePhrasesData.length; i++) {allQst.push(()=>ordrePhrases(container,i , mainFeed, ordrePhrasesData))}
     
     //shuffle :
     allQst.sort( ()=>{return Math.random() - 0.5 })
@@ -85,6 +74,7 @@ btn.onclick= function(){
     // FIRST ITEM
     allQst[index](container, index);
     progress.style.width= (index+1)*facteur +"%";
+
     // FEED + NEXT ITEMS
     const continu = document.querySelector('.continue')
     const feed = document.querySelector('.feed')
@@ -100,10 +90,12 @@ btn.onclick= function(){
         }, 500);
                 
       } else{
+        // Ecran de fin session
         continu.innerText= 'Fin Quiz'
+        
       }
 
-        // Ecran de fin session
+
     })
     
   }

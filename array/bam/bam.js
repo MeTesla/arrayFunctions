@@ -33,7 +33,7 @@ function createQuiz(){
     
     // Create array of All activities 
     
-    for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed) /*, ()=>vf(container,i)*/)}
+    for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed, qcmQuestions) /*, ()=>vf(container,i)*/)}
     for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
     for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
 
@@ -69,7 +69,7 @@ function createQuiz(){
 function html(){
     const code = `<div class="header">
    <div class="status">
-    <img src="../activities/img/previous.svg" alt=""> 
+    <img src="../activities/img/previous.svg"> 
     <div class="progress">
       <div class="my-progress"> </div>
    </div>

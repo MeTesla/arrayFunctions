@@ -1,7 +1,6 @@
 const l = console.log;
-import { ordrePhrasesData } from "../data/data.js";
-// 
-export function ordrePhrases(bloc, ind, variable){
+ 
+export function ordrePhrases(bloc, ind, variable,data){
  const div=document.createElement('div');
  div.classList.add('ordre-ph') 
  div.innerHTML = htmlCode()
@@ -34,9 +33,9 @@ let phraseInOrder=''
 
 //btnSuivant()
    // Choisir 1 phrases
-let index=Math.floor(Math.random()* ordrePhrasesData.length)
-phraseInOrder = ordrePhrasesData[index]
-let onePhrase = ordrePhrasesData[index].split(' ').sort(function(a, b){return 0.5 - Math.random()})
+let index=Math.floor(Math.random()* data.length)
+phraseInOrder = data[index]
+let onePhrase = data[index].split(' ').sort(function(a, b){return 0.5 - Math.random()})
 
 /*let mesPhrases=[]
 for(let i=0; i<phrases.length; i++){
@@ -77,10 +76,8 @@ function verifierFunc(){
    const feed=document.querySelector('.feed');
    const feedMsg=feed.querySelector('.msg')
    feed.style.bottom='0px';
-    l(recepteur.innerText, phraseInOrder.split(' ').join(''))
    //resultat.style.bottom= "0"
-   if(recepteur.innerText==phraseInOrder.split(' ').join('')){
-     
+   if(recepteur.innerText==phraseInOrder.split(' ').join('')){     
      // message.style.color= "var(--correct)"
       //message.innerText = "C'est correct"      
       //monScore += 10
