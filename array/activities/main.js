@@ -1,5 +1,6 @@
 const l=console.log;
 // PROBLEME : la référence à l'image se fait par rapport à la page HTML. en cas de plusieurs appels il y aura problème de LIEN 
+// Regler : variable vs feed, paramètre ou selection de dom element
 
 /*
   1- STYLE commun pour tous les appels

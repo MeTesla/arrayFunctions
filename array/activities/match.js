@@ -1,9 +1,15 @@
+//---------------------DEFITS ----------------------------
+// 1- shuffle synonymes  : FAIT
+// 2- Afficher le bon résultat
+// 3- eviter les doublons : à chaque appel  / DEMI SOLUTION
+
 //import {accueil} from '../../scripts/main.js'
 //import {pairs} from './apparaiement-db.js'
 //import confetti from 'https://cdn.skypack.dev/canvas-confetti';
 //import {confetti} from '../../assets/confetti.js'
 //import {popupFermer} from '../fermer/fermer.js'
- 
+
+import { uniqueIndexes } from "./utils.js";
 const l=console.log;
 
 // Une manière de shuffle 2 arrays
@@ -23,21 +29,29 @@ export function match(bloc, variable, data){
  let left=document.querySelector('.left')
  const nbrWords = 4
 
+ 
+ const uniquevalues = uniqueIndexes(nbrWords, data.length)
+
  // créer les divs
+ let dataSyn=[]
  for(let i=0; i<nbrWords; i++){
-   let alea=Math.floor(Math.random()*data.length);
+   let alea=Math.floor(Math.random()*data.length); // risque de doublons
+   
    const mot=document.createElement('div');
    const syn=document.createElement('div');
    mot.className='box'; mot.id=i;
    syn.className='box2'; syn.id= i + 4
-   mot.innerHTML=data[alea].mot;
-   syn.innerHTML=data[alea].syn;   
-   mot.dataset.rep=data[alea].syn; 
-
+   mot.innerHTML=data[uniquevalues[i]].mot;
+   dataSyn.push(data[uniquevalues[i]].syn);   
+   mot.dataset.rep=data[uniquevalues[i]].syn; 
    left.appendChild(mot);
    right.appendChild(syn);
  }
-
+//shuffle synonyms
+ dataSyn.sort( ()=>{return Math.random() - 0.5 })
+ document.querySelectorAll('.box2').forEach((synonym,i)=>{
+  synonym.innerHTML = dataSyn[i]
+ })
 
 
 // prendre 4 mots 4 syn de data
