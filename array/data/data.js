@@ -1,4 +1,4 @@
-export const qcmQuestions = [
+export const qcmData = [
 {question: '<i>La boîte à merveilles</i> est écrit en:', 
 c1: '1950', 
 c2: '1951', 
@@ -46,9 +46,7 @@ c3 : '2006',
 rep: '2005'}
 ];
 
-export const qcmLength=qcmQuestions.length;
-
-export const vfQuestions = [
+export const vfData = [
   {'question': 'Sidi Mohammed était un enfant heureux', 'rep': 'faux'},
   {'question': 'Les événements du roman se déroulent à Fès.', 'rep': 'vrai'},
   {'question': 'Lalla Aicha était l\'amie intime et la confidente de Lalla Zoubida.', 'rep': 'vrai'},
@@ -66,9 +64,7 @@ export const vfQuestions = [
   {'question': `Quand les élèves nettoyaient le msid, Sidi Mohammed apportait de l'eau de la fontaine`, 'rep': 'faux'}
 ];
 
-export const vfLength=vfQuestions.length;
-
-export const matchMots = [
+export const matchData = [
   { mot: 'aller', syn: 'partir' },
   { mot: 'grand', syn: 'élevé' },
   { mot: 'heureux', syn: 'joyeux' },
@@ -110,8 +106,6 @@ export const matchMots = [
   { mot: 'jouer', syn: 's’amuser' },
   { mot: 'dormir', syn: 'somnoler' }
 ];
-
-export const matchLength = matchMots.length;
 
 export const fillGapData=[
 {

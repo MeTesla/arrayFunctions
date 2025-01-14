@@ -70,6 +70,9 @@ function loadPhrase(){
  })
 }
 
+   emetteur.style.height = (emetteur.scrollHeight+ 30 ) + 'px'
+   recepteur.style.height = emetteur.getBoundingClientRect().height + 'px'
+
 verifier.addEventListener('click', verifierFunc)
 function verifierFunc(){
    if(!recepteur.hasChildNodes()) return

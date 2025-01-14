@@ -20,17 +20,14 @@ qcm.js
 */
 
 // Les chemins sont RELATIFS à main.js
-import {qcmQuestions, qcmLength, ordrePhrasesData, vfQuestions, vfLength, matchMots, matchLength,ordreEventsData, fillGapData } from '../data/data.js'
+import {qcmData, ordrePhrasesData, vfData, matchData,ordreEventsData, fillGapData} from '../data/data.js'
 
 import {vf} from './vf.js';
-import {qcm} from './qcm.js';
+import {qcm} from './qcm.js'; //qcm(container, i, mainFeed, qcmData)
 import {match} from './match.js'
 import {fillGap} from './fillGap.js'
 import { ordreEvents } from './ordreEvents.js';
 import { ordrePhrases } from './ordrePhrases.js';
-
-
-
 // ----------------------------------
 
 const btn=document.querySelector('#btn')
@@ -55,11 +52,11 @@ btn.onclick= function(){
     let mainFeed='a'
     
     // Create array of All activities 
-    // for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed, qcmQuestions))}
-    // for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
-    // for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed, matchMots))}
+    // for(let i=0; i<qcmData.length; i++){allQst.push(()=>qcm(container, i, mainFeed, qcmData))}
+    // for(let i=0; i<vfData.length; i++){allQst.push(()=>vf(container, i,mainFeed, vfData))}
+    for(let i=0; i<matchData.length; i++){allQst.push(()=>match(container, mainFeed, matchData))}
     // for(let i=0; i<fillGapData.length; i++){allQst.push(()=>fillGap(container, mainFeed, fillGapData))}
-    for(let i =0; i<ordreEventsData.length;i++) allQst.push(()=>ordreEvents(container, mainFeed, ordreEventsData))
+    // for(let i =0; i<ordreEventsData.length;i++) allQst.push(()=>ordreEvents(container, mainFeed, ordreEventsData))
     // for(let i = 0; i< ordrePhrasesData.length; i++) {allQst.push(()=>ordrePhrases(container,i , mainFeed, ordrePhrasesData))}
     
     //shuffle :
@@ -87,17 +84,12 @@ btn.onclick= function(){
         setTimeout(() => {
             container.firstElementChild.remove();
             allQst[index](container, index);    
-        }, 500);
-                
+        }, 500);                
       } else{
         // Ecran de fin session
-        continu.innerText= 'Fin Quiz'
-        
+        continu.innerText= 'Fin Quiz'        
       }
-
-
-    })
-    
+    })    
   }
 
  function html(){

@@ -7,8 +7,7 @@ export function ordreEvents(bloc, variable,data) {
   div.classList.add('qcm');
   div.innerHTML = code();
   bloc.appendChild(div);
-  
-  
+    
   const container =document.querySelector('.container');
   let drag = document.querySelector('.drag')
   let drop = document.querySelector('.drop')
@@ -34,10 +33,11 @@ for (let i=0; i<oneChapEvents.length; i++){
         drag.appendChild(div)
       }
     })
-}
+} 
 
+  drag.style.height = (drag.scrollHeight+ 10 * oneChapEvents.length) + 'px'
   //drag.style.height = (drag.getBoundingClientRect().height + 30*data.length) + 'px'
-  //drop.style.height = drag.getBoundingClientRect().height + 'px'
+  drop.style.height = drag.getBoundingClientRect().height + 'px'
   drop.innerHTML=null
 
   // boutton verifier

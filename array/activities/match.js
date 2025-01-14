@@ -14,16 +14,17 @@ const syns = [...document.querySelectorAll('.syn')];
 
 // ---------- APPARAIEMENT  ------------
 export function match(bloc, variable, data){
-   let div=document.createElement('div');
-   div.className='match';
-   div.innerHTML = htmlCode();  
-   bloc.appendChild(div);
+  let div=document.createElement('div');
+  div.className='match';
+  div.innerHTML = htmlCode();  
+  bloc.appendChild(div);
 
  let right=document.querySelector('.right')
  let left=document.querySelector('.left')
- 
+ const nbrWords = 4
+
  // créer les divs
- for(let i=0; i<4; i++){
+ for(let i=0; i<nbrWords; i++){
    let alea=Math.floor(Math.random()*data.length);
    const mot=document.createElement('div');
    const syn=document.createElement('div');
@@ -127,18 +128,22 @@ export function match(bloc, variable, data){
      }
  })
  
+
   verifier.addEventListener('click',()=>{
+    let pathCorrect = 0
    svg.childNodes.forEach(path=>{
+     
      if(path.dataset.correct=='correct'){
        path.style.stroke="green"
+       pathCorrect += 1
      } else{
        path.style.stroke="red"
      }
    })
     const feed=document.querySelector('.feed');
-    //const feedMsg=feed.querySelector('.msg')
+    const feedMsg=feed.querySelector('.msg')
     feed.style.bottom='0px';
-
+    feedMsg.innerText = "Tu as eu  : " + pathCorrect +'/' + nbrWords
  })
 
 function htmlCode(){

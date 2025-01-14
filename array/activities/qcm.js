@@ -17,7 +17,7 @@ export function qcm(bloc,ind, variable, data){
   c1.innerHTML=data[ind].c1;
   c2.innerHTML=data[ind].c2;
   c3.innerHTML=data[ind].c3;
- 
+  l(ind)
 // SELECTION
 const lesChoix= document.querySelectorAll('.choix');
 lesChoix.forEach(choix=> {
@@ -26,7 +26,8 @@ lesChoix.forEach(choix=> {
   choix.classList.add('selected');
   reponse = choix.innerHTML;
  })
-}) 
+})
+
 //Verifier
 const verifier=document.querySelector('.verifier');
 verifier.addEventListener('click',()=>{

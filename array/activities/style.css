@@ -285,7 +285,7 @@
   }
 */
 
-/* --------------- ordrePhrases ------*/
+/* --------------- ordreEvents ------*/
 
 .drag-drop{
   flex-basis: 80%;
@@ -294,7 +294,6 @@
 }
 
 .drag, .drop{
-  min-height: 30vh;
   border: 1px solid white;
   font-size: 0.8rem;
   font-weight: bold;
