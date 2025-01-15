@@ -2,7 +2,7 @@
 
 const l = console.log
 
-export function ordreEvents(bloc, variable,data) {
+export function ordreEvents(bloc, data) {
   const div = document.createElement('div');
   div.classList.add('qcm');
   div.innerHTML = code();
@@ -50,12 +50,10 @@ verifier.addEventListener('click', ()=>{
   const feedMsg=feed.querySelector('.msg')
   feed.style.bottom='0px';
 
-  if (dropedPhrases.toString()==initOneChapEvents.toString()){
-    variable='C\'est correct';
-    feedMsg.innerHTML = variable
-  } else{
-    variable='C\'est incorrect';
-    feedMsg.innerHTML = variable
+  if (dropedPhrases.toString()==initOneChapEvents.toString()){   
+    feedMsg.innerHTML = 'C\'est correct';
+  } else{  
+    feedMsg.innerHTML = 'C\'est incorrect';
   }
 })
   

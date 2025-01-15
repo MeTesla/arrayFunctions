@@ -24,13 +24,12 @@ qcm.js
 import {qcmData, ordrePhrasesData, vfData, matchData,ordreEventsData, fillGapData} from '../data/data.js'
 
 import {vf} from './vf.js';
-import {qcm} from './qcm.js'; //qcm(container, i, mainFeed, qcmData)
+import {qcm} from './qcm.js'; //qcm(container, mainFeed, qcmData)
 import {match} from './match.js'
 import {fillGap} from './fillGap.js'
 import { ordreEvents } from './ordreEvents.js';
 import { ordrePhrases } from './ordrePhrases.js';
 // ----------------------------------
-let score = 0
 const btn=document.querySelector('#btn')
 
 btn.onclick= function(){
@@ -48,20 +47,18 @@ btn.onclick= function(){
    //Variables 
     const container = document.querySelector('.container')
     //const qstIndex = document.querySelector('.index');
-    const progress= document.querySelector('.my-progress');
-    const myScore= document.querySelector('.my-score');
+    const progress= document.querySelector('.my-progress');    
     let index=0;
     let allQst=[];    
     
-    //let mainFeed='a'
     
     // Create array of All activities 
-    for(let i=0; i<qcmData.length; i++){allQst.push(()=>qcm(container, qcmData, score))}
-    // for(let i=0; i<vfData.length; i++){allQst.push(()=>vf(container, i,mainFeed, vfData))}
-    // for(let i=0; i<matchData.length; i++){allQst.push(()=>match(container, mainFeed, matchData))}
-    // for(let i=0; i<fillGapData.length; i++){allQst.push(()=>fillGap(container, mainFeed, fillGapData))}
-    // for(let i =0; i<ordreEventsData.length;i++) allQst.push(()=>ordreEvents(container, mainFeed, ordreEventsData))
-    // for(let i = 0; i< ordrePhrasesData.length; i++) {allQst.push(()=>ordrePhrases(container,i , mainFeed, ordrePhrasesData))}
+    for(let i=0; i<qcmData.length; i++){allQst.push(()=>qcm(container, qcmData))}
+    for(let i=0; i<vfData.length; i++){allQst.push(()=>vf(container, vfData))}
+    for(let i=0; i<matchData.length; i++){allQst.push(()=>match(container, matchData))}
+    for(let i=0; i<fillGapData.length; i++){allQst.push(()=>fillGap(container, fillGapData))}
+    for(let i =0; i<ordreEventsData.length;i++) allQst.push(()=>ordreEvents(container,ordreEventsData))
+    for(let i = 0; i< ordrePhrasesData.length; i++) {allQst.push(()=>ordrePhrases(container, ordrePhrasesData))}
   
     //shuffle :
     allQst.sort( ()=>{return Math.random() - 0.5 })

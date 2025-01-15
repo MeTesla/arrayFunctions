@@ -19,7 +19,7 @@ const syns = [...document.querySelectorAll('.syn')];
 //mots.sort(()=>Math.random() - 0.5);
 
 // ---------- APPARAIEMENT  ------------
-export function match(bloc, variable, data){
+export function match(bloc, data){
   let div=document.createElement('div');
   div.className='match';
   div.innerHTML = htmlCode();  
@@ -139,15 +139,15 @@ export function match(bloc, variable, data){
 
   verifier.addEventListener('click',()=>{
     let pathCorrect = 0
-   svg.childNodes.forEach(path=>{
+    svg.childNodes.forEach(path=>{
      
      if(path.dataset.correct=='correct'){
        path.style.stroke="green"
        pathCorrect += 1
-     } else{
+      } else{
        path.style.stroke="red"
-     }
-   })
+      }
+    })
     const feed=document.querySelector('.feed');
     const feedMsg=feed.querySelector('.msg')
     feed.style.bottom='0px';
@@ -163,7 +163,9 @@ function htmlCode(){
       <div class="right"> </div>
       <svg id="svg"></svg>
   </div>
-  <div class="redo"> <img class='redo' src='./activities/img/redo.svg' alt="Redo">  </div>
+  <div class="redo"> 
+    <img class='redo' src='./activities/img/redo.svg' alt="Redo">
+  </div>
   <div class="verifier"> Vérifier </div>
  </div>
   <style>

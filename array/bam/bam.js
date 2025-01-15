@@ -1,13 +1,13 @@
 // import acticities and data
+import {qcmData, ordrePhrasesData, vfData, matchData,ordreEventsData, fillGapData} from './data/data.js'
 
-import { qcmQuestions, qcmLength } from "./data/dataBam.js";
-import {qcm} from '../activities/qcm.js';
-
-import { vfQuestions, vfLength } from "./data/dataBam.js";
 import {vf} from '../activities/vf.js';
+import {qcm} from '../activities/qcm.js';
+import {match} from '../activities/match.js'
+import {fillGap} from '../activities/fillGap.js'
+import { ordreEvents } from '../activities/ordreEvents.js';
+import { ordrePhrases } from '../activities/ordrePhrases.js';
 
-import {matchMots, matchLength} from '../data/data.js'
-import {match} from '../activities/match.js';
 const btn=document.querySelector('#btn')
 
 btn.onclick= function(){
@@ -15,54 +15,58 @@ btn.onclick= function(){
   div.className="qz-container";
   div.innerHTML= html()
   document.body.append(div)
-  createQuiz()
   
+  createQuiz()  
   const prev = document.querySelector('.status img')
-  prev.onclick = () => div.remove()
-  
+  prev.onclick = () => div.remove()  
 }
 
 function createQuiz(){
    //Variables 
-    const container = document.querySelector('.container')
-    const qstIndex = document.querySelector('.index');
+    const container = document.querySelector('.container')    
     const progress= document.querySelector('.my-progress');
     let index=0;
     let allQst=[];
-    let mainFeed='a'
     
-    // Create array of All activities 
-    
-    for(let i=0; i<qcmLength; i++){allQst.push(()=>qcm(container, i, mainFeed, qcmQuestions) /*, ()=>vf(container,i)*/)}
-    for(let i=0; i<vfLength; i++){allQst.push(()=>vf(container, i,mainFeed, vfQuestions))}
-    for(let i=0; i<matchLength; i++){allQst.push(()=>match(container, mainFeed))}
 
+    // Create array of All activities     
+    for(let i=0; i<qcmData.length; i++){allQst.push(()=>qcm(container, qcmData))}
+    for(let i=0; i<vfData.length; i++){allQst.push(()=>vf(container, vfData))}
+    for(let i=0; i<matchData.length; i++){allQst.push(()=>match(container, matchData))}
+    for(let i=0; i<fillGapData.length; i++){allQst.push(()=>fillGap(container, fillGapData))}
+    for(let i =0; i<ordreEventsData.length;i++) allQst.push(()=>ordreEvents(container,ordreEventsData))
+    for(let i = 0; i< ordrePhrasesData.length; i++) {allQst.push(()=>ordrePhrases(container, ordrePhrasesData))}
+  
 //shuffle :
     allQst.sort( ()=>{return Math.random() - 0.5 })
     
-//slice 10 items
-    allQst= allQst.slice(0,15)
+//slice n items
+    allQst= allQst.slice(0,5)
     
 //Progress bar
     let facteur = 100/allQst.length
     
 // FIRST ITEM
     allQst[index](container, index);
-    
+    progress.style.width= (index+1) * facteur +"%";
+
 // FEED + NEXT ITEMS
     const continu = document.querySelector('.continue')
     const feed = document.querySelector('.feed')
+    
     continu.addEventListener('click',()=>{
+      if(allQst.length!==index+1){
         index++
-        progress.style.width=(index+1)*facteur +"%";
-      //  qstIndex.innerText=index + '/' + allQst.length
-        feed.style.bottom = "-130px";
+        progress.style.width=(index+1)*facteur +"%";        
+        feed.style.bottom = "-130px";       
         setTimeout(() => {
             container.firstElementChild.remove();
             allQst[index](container, index);    
-        }, 500);
-        
+        }, 500);                
+      } else{
         // Ecran de fin session
+        continu.innerText= 'Fin Quiz'        
+      }
      })
      
 }
@@ -86,4 +90,4 @@ function html(){
         <div class="continue">Continue</div> 
      </div>`
     return code
-  }
+}

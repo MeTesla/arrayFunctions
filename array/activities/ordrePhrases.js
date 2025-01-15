@@ -1,6 +1,6 @@
 const l = console.log;
  
-export function ordrePhrases(bloc, ind, variable,data){
+export function ordrePhrases(bloc, data){
  const div=document.createElement('div');
  div.classList.add('ordre-ph') 
  div.innerHTML = htmlCode()
@@ -86,12 +86,10 @@ function verifierFunc(){
       //monScore += 10
       //score.innerText = monScore
       //audio = new Audio('../../assets/audios/yay.mp3')
-      //audio.play()
-      variable = `C'est correct !`;
-      feedMsg.innerHTML = variable
-   } else{
-      variable = `C'est incorrect !`;
-      feedMsg.innerHTML = variable
+      //audio.play()      
+      feedMsg.innerHTML = `C'est correct !`;
+   } else{      
+      feedMsg.innerHTML = `C'est incorrect !`;
       /*message.innerText = "C'est incorrect !"
       bnRep.innerHTML= "La réponse est : <span>" + phrasesInOrder[currentQst] + "</span>"
       message.style.color= "var(--incorrect)"

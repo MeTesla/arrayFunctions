@@ -1,6 +1,6 @@
 const l=console.log
 
-export function qcm(bloc, data, score){    
+export function qcm(bloc, data){    
     const div=document.createElement('div');
     div.classList.add('qcm');   
     div.innerHTML=code();
@@ -39,12 +39,8 @@ verifier.addEventListener('click',()=>{
 
   if(reponse==data[ind].rep){
     feedMsg.innerHTML =`C'est correct !`;
-   // = variable
-   score = score + 10
   } else{
     feedMsg.innerHTML ='Dommage !!!';
-   // = variable;
-   // Array false
   }
 })
 

@@ -1,5 +1,5 @@
 
-export function vf(bloc, ind, variable, data){
+export function vf(bloc, data){
     const l=console.log;
     const div=document.createElement('div');
     div.classList.add('vf');
@@ -13,6 +13,7 @@ export function vf(bloc, ind, variable, data){
 
 // DOM    
  
+let ind = Math.floor(Math.random() * data.length)
   question.innerHTML=data[ind].question;
  
 // SELECTION
@@ -31,12 +32,10 @@ verifier.addEventListener('click',()=>{
     const feed=document.querySelector('.feed');
     const feedMsg=feed.querySelector('.msg')
     feed.style.bottom='0px';
-    if(reponse == data[ind].rep){
-     variable= 'vf correct';
-     feedMsg.innerText=variable;
+    if(reponse == data[ind].rep){     
+     feedMsg.innerText='vf correct';
     } else{
-     variable ='vf incorrect';
-     feedMsg.innerText= variable
+     feedMsg.innerText= 'vf incorrect';
     }
 })
 
