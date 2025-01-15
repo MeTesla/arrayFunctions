@@ -1,6 +1,6 @@
 const l=console.log
 
-export function fillGap(bloc, variable, data){
+export function fillGap(bloc, data){
   const div=document.createElement('div');
   div.classList.add('fill-gap');   
   div.innerHTML=code();

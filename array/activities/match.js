@@ -1,7 +1,7 @@
 //---------------------DEFITS ----------------------------
-// 1- shuffle synonymes  : FAIT
+// 1- shuffle synonymes  : -------------------------FAIT
 // 2- Afficher le bon résultat
-// 3- eviter les doublons : à chaque appel  / DEMI SOLUTION
+// 3- eviter les doublons : à chaque appel  / DEMI SOLUTION , main qui s'ocuppe de la data 
 
 //import {accueil} from '../../scripts/main.js'
 //import {pairs} from './apparaiement-db.js'
@@ -31,12 +31,10 @@ export function match(bloc, variable, data){
 
  
  const uniquevalues = uniqueIndexes(nbrWords, data.length)
+ let dataSyn=[] // tableau des synonymes brutes
 
  // créer les divs
- let dataSyn=[]
- for(let i=0; i<nbrWords; i++){
-   let alea=Math.floor(Math.random()*data.length); // risque de doublons
-   
+ for(let i=0; i<nbrWords; i++){   
    const mot=document.createElement('div');
    const syn=document.createElement('div');
    mot.className='box'; mot.id=i;
@@ -49,10 +47,7 @@ export function match(bloc, variable, data){
  }
 //shuffle synonyms
  dataSyn.sort( ()=>{return Math.random() - 0.5 })
- document.querySelectorAll('.box2').forEach((synonym,i)=>{
-  synonym.innerHTML = dataSyn[i]
- })
-
+ document.querySelectorAll('.box2').forEach((synonym,i)=> synonym.innerHTML = dataSyn[i])
 
 // prendre 4 mots 4 syn de data
 // créer 4 divs mots - 4 divs syns ==> +innerHTML
@@ -75,8 +70,7 @@ export function match(bloc, variable, data){
     let t=e.touches[0]
     xFrom=e.target.getBoundingClientRect().right + 7- rows.offsetLeft;
     yFrom=e.target.getBoundingClientRect().top - headerH + (e.target.getBoundingClientRect().height /2 ) - rows.offsetTop;
-    start=e.target
-  
+    start=e.target  
     svg.innerHTML+=`<path id=${index} class="my-path"> </path>`
     
     rows.ontouchmove=(e)=>{

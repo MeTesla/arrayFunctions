@@ -30,8 +30,9 @@ import {fillGap} from './fillGap.js'
 import { ordreEvents } from './ordreEvents.js';
 import { ordrePhrases } from './ordrePhrases.js';
 // ----------------------------------
-
+let score = 0
 const btn=document.querySelector('#btn')
+
 btn.onclick= function(){
   const div=document.createElement('div');
   div.className="qz-container";
@@ -48,18 +49,20 @@ btn.onclick= function(){
     const container = document.querySelector('.container')
     //const qstIndex = document.querySelector('.index');
     const progress= document.querySelector('.my-progress');
+    const myScore= document.querySelector('.my-score');
     let index=0;
-    let allQst=[];
-    let mainFeed='a'
+    let allQst=[];    
+    
+    //let mainFeed='a'
     
     // Create array of All activities 
-    // for(let i=0; i<qcmData.length; i++){allQst.push(()=>qcm(container, i, mainFeed, qcmData))}
+    for(let i=0; i<qcmData.length; i++){allQst.push(()=>qcm(container, qcmData, score))}
     // for(let i=0; i<vfData.length; i++){allQst.push(()=>vf(container, i,mainFeed, vfData))}
-    for(let i=0; i<matchData.length; i++){allQst.push(()=>match(container, mainFeed, matchData))}
+    // for(let i=0; i<matchData.length; i++){allQst.push(()=>match(container, mainFeed, matchData))}
     // for(let i=0; i<fillGapData.length; i++){allQst.push(()=>fillGap(container, mainFeed, fillGapData))}
     // for(let i =0; i<ordreEventsData.length;i++) allQst.push(()=>ordreEvents(container, mainFeed, ordreEventsData))
     // for(let i = 0; i< ordrePhrasesData.length; i++) {allQst.push(()=>ordrePhrases(container,i , mainFeed, ordrePhrasesData))}
-    
+  
     //shuffle :
     allQst.sort( ()=>{return Math.random() - 0.5 })
     
@@ -71,17 +74,17 @@ btn.onclick= function(){
     
     // FIRST ITEM
     allQst[index](container, index);
-    progress.style.width= (index+1)*facteur +"%";
-
+    progress.style.width= (index+1) * facteur +"%";
+    
     // FEED + NEXT ITEMS
     const continu = document.querySelector('.continue')
     const feed = document.querySelector('.feed')
+
     continu.addEventListener('click',()=>{
       if(allQst.length!==index+1){
         index++
-        progress.style.width=(index+1)*facteur +"%";
-        //qstIndex.innerText=index + '/' + allQst.length
-        feed.style.bottom = "-130px";
+        progress.style.width=(index+1)*facteur +"%";        
+        feed.style.bottom = "-130px";       
         setTimeout(() => {
             container.firstElementChild.remove();
             allQst[index](container, index);    
@@ -101,7 +104,7 @@ btn.onclick= function(){
       <div class="my-progress"> </div>
    </div>
    <div class="score">
-      <div class="my-score"> 20</div>
+      <div class="my-score">00</div>
      </div>
    </div> 
   </div>

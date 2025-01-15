@@ -1,6 +1,6 @@
 const l=console.log
 
-export function qcm(bloc,ind, variable, data){    
+export function qcm(bloc, data, score){    
     const div=document.createElement('div');
     div.classList.add('qcm');   
     div.innerHTML=code();
@@ -10,14 +10,16 @@ export function qcm(bloc,ind, variable, data){
     const c1=document.querySelector('.c1');
     const c2=document.querySelector('.c2');
     const c3=document.querySelector('.c3');
+    
     let reponse='';
 
 // DOM  UI
+let ind = Math.floor(Math.random() * data.length)
   question.innerHTML=data[ind].question;
   c1.innerHTML=data[ind].c1;
   c2.innerHTML=data[ind].c2;
   c3.innerHTML=data[ind].c3;
-  l(ind)
+  
 // SELECTION
 const lesChoix= document.querySelectorAll('.choix');
 lesChoix.forEach(choix=> {
@@ -36,12 +38,12 @@ verifier.addEventListener('click',()=>{
   feed.style.bottom='0px';
 
   if(reponse==data[ind].rep){
-   variable=`C'est correct !`;
-   feedMsg.innerHTML = variable
-     //score++
+    feedMsg.innerHTML =`C'est correct !`;
+   // = variable
+   score = score + 10
   } else{
-   variable='Dommage !!!';
-   feedMsg.innerHTML = variable;
+    feedMsg.innerHTML ='Dommage !!!';
+   // = variable;
    // Array false
   }
 })
