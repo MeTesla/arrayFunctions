@@ -1,32 +1,10 @@
 const l=console.log;
-// PROBLEME : la référence à l'image se fait par rapport à la page HTML. en cas de plusieurs appels il y aura problème de LIEN 
-// Regler : variable vs feed, paramètre ou selection de dom element
 
-/*
-  1- STYLE commun pour tous les appels
-     Où placer le fichier CSS.
-       import sheet from './style.css' assert { type: 'css' };
-       document.adoptedStyleSheets = [sheef]
-  2- ONE question quiz function : 
-      Solution: la boucle de création : i < 1 : ce qui limite les questions en une SEUL
-*/
- 
-/* 
-main.js :
-  -Qst index | allQst[]  | feed msg  |  next qst | 
-  -Add: progress, score
-  -mettre verifier ici.
-qcm.js
-  -UI  | qcm logic  | vérifier
-*/
-
-// Les chemins sont RELATIFS à main.js
 import {qcmData, ordrePhrasesData, vfData, matchData,ordreEventsData, fillGapData} from '../data/data.js'
 
-import('./vf.js')
-  .then(module=> l(module.vf))
 
 // let vf = import('./vf.js')
+import {vf} from './vf.js';
 import {qcm} from './qcm.js';
 import {match} from './match.js'
 import {fillGap} from './fillGap.js'
@@ -55,25 +33,27 @@ btn.onclick= function(){
     let allQst=[];    
     
     
+   
     // Create array of All activities 
     // for(let i=0; i<qcmData.length; i++){allQst.push(()=>qcm(container, qcmData))}
-    // for(let i=0; i<vfData.length; i++){allQst.push(()=>vf(container, vfData))}
+    for(let i=0; i<vfData.length; i++){allQst.push(()=>vf(container, vfData))}
     // for(let i=0; i<matchData.length; i++){allQst.push(()=>match(container, matchData))}
     // for(let i=0; i<fillGapData.length; i++){allQst.push(()=>fillGap(container, fillGapData))}
     // for(let i =0; i<ordreEventsData.length;i++) allQst.push(()=>ordreEvents(container,ordreEventsData))
     // for(let i = 0; i< ordrePhrasesData.length; i++) {allQst.push(()=>ordrePhrases(container, ordrePhrasesData))}
   
     //shuffle :
-    allQst.sort( ()=>{return Math.random() - 0.5 })
+    // allQst.sort( ()=>{return Math.random() - 0.5 })
     
     //slice 10 items
-    allQst= allQst.slice(0,10)
+    // allQst= allQst.slice(0,10)
     
     //Progress bar
     let facteur = 100/allQst.length
     
     // FIRST ITEM
-    allQst[index](container, index);
+    
+     allQst[index](container, index);
     progress.style.width= (index+1) * facteur +"%";
     
     // FEED + NEXT ITEMS

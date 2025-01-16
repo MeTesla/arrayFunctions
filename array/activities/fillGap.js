@@ -5,19 +5,13 @@ export function fillGap(bloc, data){
   div.classList.add('fill-gap');   
   div.innerHTML=code();
   bloc.appendChild(div);
-
-//--------------- LINE 
-const lin=document.createElement('div');
-lin.className="line";
-div.appendChild(lin)
-
+  
   let index = Math.floor(Math.random()* data.length)
   data[index].liste.sort( () => Math.random()-0.5 );
   const header= document.querySelector('.qz-container .header')
   const liste=document.querySelector('.liste');
   const texte=document.querySelector('.texte');
-  const line = document.querySelector('.line')
-  
+
   let motsPos=[];
   let x, y, initPos
   let allowMove=true 
@@ -46,7 +40,7 @@ let txte=data[index].texte
   mots.forEach(mot=>{
     motsPos.push({x:mot.offsetLeft,
                     y:mot.offsetTop
-      })  
+    })  
   })
   mots.forEach((mot, index)=>{
       mot.style.position ="absolute";
@@ -96,9 +90,7 @@ mots.forEach(item =>{
     
     gap[1].style.width = box.scrollWidth + 'px'
     //l('gap  rect : ' +gap[1].getBoundingClientRect().y , 'gap offset : ' + gap[1].offsetTop )
-    //l('box rect : ' +box.getBoundingClientRect().y , ' box offset : ' + box.offsetTop )
-    
-    line.style.top= gap[1].offsetTop +"px"; 
+    //l('box rect : ' +box.getBoundingClientRect().y , ' box offset : ' + box.offsetTop )    
     
      box.dataset.linkedTo=gap[1].id;
      if(box.innerText==gap[1].dataset.rep){

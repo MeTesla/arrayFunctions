@@ -5,15 +5,7 @@
   body {
   position: relative;
   }
-  .line{
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: red    ;
-    width: 100vw;
-    height: 1px;
-    transition: all 1s ease;
-  }
+
   .qz-container{
     position: fixed; top: 0;
     width: 100vw; height: 100vh;
